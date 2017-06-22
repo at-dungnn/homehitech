@@ -8,8 +8,8 @@ use App\Product;
 class ProductController extends Controller
 {
     public function Index(){
-        
-    	return view('backend.product',['isActive'=>'product']);
+        $product = Product::where('delete','0')->select('ten_sanpham','ma_sanpham','cong_suat','kich_thuoc','khoet_lo','gia')->get()->toJson();
+    	return view('backend.product',['isActive'=>'product','data'=>$product]);
     }
     public function getAdd(){
         $category = Category::where('delete','0')->get();
