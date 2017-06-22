@@ -16,12 +16,12 @@ Route::get('/', function () {
 });
 Auth::routes();
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin',['middleware' => ['web','auth']])->group(function () {
 	Route::get('/', 'DashboardControler@Index')->name('admin');
 	Route::get('login', 'AdminLoginController@Index')->name('admin.login');
 	Route::get('product', 'ProductController@Index')->name('admin.product');
 	Route::get('product/add', 'ProductController@getAdd')->name('admin.product.add');
-	Route::post('product/add', 'ProductController@postAdd');
+	Route::post('product/add', 'ProductController@postAdd')->name('admin.product.postadd');
 
 	Route::get('category', 'CategoryController@Index')->name('admin.category');
 	Route::get('category/add', 'CategoryController@getAdd')->name('admin.category.add');

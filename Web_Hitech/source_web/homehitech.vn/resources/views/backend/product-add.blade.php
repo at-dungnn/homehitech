@@ -8,7 +8,8 @@
             <div class="col-sm-12">
                 <section class="panel panel-default">
                     <div class="panel-body">
-                    	<form role="form" class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
+                    	<form role="form" class="form-product form-horizontal" method="POST" action="{{route('admin.product.postadd')}}" enctype="multipart/form-data">
+                            {{ csrf_field() }}
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">
                                 	Tên sản phẩm
@@ -25,6 +26,19 @@
                                 </label>
                                 <div class="col-sm-4">
                                     <input type="text" name="ma_sanpham" class="ma_sanpham form-control"> 
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Danh mục
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="col-sm-4">
+                                    <select name="category_id" class="category_id form-control">
+                                    @foreach($category as $key=>$val)
+                                        <option value="{{$val->id}}">{{$val->name}}</option>
+                                    @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -62,6 +76,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Thông số chung</label>
                                 <div class="col-sm-8">
+                                    <input type="hidden" name="thong_so" class="thong_so" />
                                     <div class="btn-toolbar m-b-sm btn-editor" data-role="editor-toolbar" data-target="#editor">
                                         <div class="btn-group"> <a class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" title="Font"><i class="fa fa-font"></i><b class="caret"></b></a>
                                             <ul class="dropdown-menu"> </ul>
@@ -101,7 +116,7 @@
                                             <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" /> </div>
                                         <div class="btn-group"> <a class="btn btn-default btn-sm" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a> <a class="btn btn-default btn-sm" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a> </div>
                                     </div>
-                                    <div id="editor" name="thong_so" class="form-control" style="overflow:scroll;height:150px;max-height:150px"></div>
+                                    <div id="editor" class="form-control" style="overflow:scroll;height:150px;max-height:150px"></div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -126,39 +141,8 @@
     <script src="{{asset('backend/js/wysiwyg/demo.js')}}"></script>
     <script type="text/javascript">
     	$(".btn-save").on("click",function(e){
-    		// var getdata={
-    		// 	'ten_sanpham':$(".ten_sanpham").val(),
-    		// 	'ma_sanpham':$(".ma_sanpham").val(),
-    		// 	'cong_suat':$(".cong_suat").val(),
-    		// 	'kich_thuoc':$(".kich_thuoc").val(),
-    		// 	'khoet_lo':$(".khoet_lo").val(),
-    		// 	'gia':$(".gia").val(),
-    		// 	'thong_so':$("#editor").html(),
-    		// 	'file':$('.img_path').prop('files')[0]
-
-    		// }
-    		// e.preventDefault();
-    		var data    = new FormData();
-    		data.append = ('ten_sanpham',$(".ten_sanpham").val());
-    		data.append = ('ma_sanpham',$(".ma_sanpham").val());
-    		data.append = ('cong_suat',$(".cong_suat").val());
-    		data.append = ('kich_thuoc',$(".kich_thuoc").val());
-    		data.append = ('khoet_lo',$(".khoet_lo").val());
-    		data.append = ('gia',$(".gia").val());
-    		data.append = ('thong_so',$("#editor").html());
-    		data.append = ('file',$('.img_path').prop('files')[0]);
-    		console.log(data);
-    		$.ajax({
-			    url: '/admin/product/add',
-			    data: data,
-			    cache: false,
-			    contentType: false,
-			    processData: false,
-			    type: 'POST',
-			    success: function(data){
-			        // console.log(data);
-			    }
-			});
+            $(".thong_so").val($("#editor").html());
+            $(".form-product").submit();   		
     	});
     	$(".btn-upload").on("click",function(){
     		$(".img_path").trigger('click');
