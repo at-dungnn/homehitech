@@ -128,13 +128,16 @@
                                     <div class="text-muted text-sm hidden-nav-xs padder m-t-sm m-b-sm">Start</div>
                                     <ul class="nav nav-main" data-ride="collapse">
                                         <li class="{{$isActive=='overview'?'active':''}}">
-                                            <a href="{{route('admin')}}" class="auto"> <i class="i i-statistics icon"> </i> <span class="font-bold">Overview</span> </a>
+                                            <a href="{{route('admin')}}" class="auto"> <i class="i i-statistics icon"> </i> <span class="font-bold">Tổng Quát</span> </a>
                                         </li>
                                         <li class="{{$isActive=='product'?'active':''}}">
-                                            <a href="{{route('admin.product')}}" class="auto">   <i class="i i-stack icon"> </i> <span class="font-bold">Product</span> </a>
+                                            <a href="{{route('admin.product')}}" class="auto">   <i class="i i-stack icon"> </i> <span class="font-bold">Sản Phẩm</span> </a>
                                         </li>  
+                                        <li class="{{$isActive=='category'?'active':''}}">
+                                            <a href="{{route('admin.category')}}" class="auto">   <i class="i i-stack icon"> </i> <span class="font-bold">Danh Mục</span> </a>
+                                        </li>
                                         <li class="{{$isActive=='users'?'active':''}}">
-                                            <a href="{{route('admin.users')}}" class="auto">   <i class="i i-stack icon"> </i> <span class="font-bold">User</span> </a>
+                                            <a href="{{route('admin.users')}}" class="auto">   <i class="i i-stack icon"> </i> <span class="font-bold">Thành viên</span> </a>
                                         </li>
                                     </ul>
                                     

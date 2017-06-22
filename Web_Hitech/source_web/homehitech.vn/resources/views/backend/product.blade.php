@@ -36,13 +36,13 @@ var oTable = $('#product').dataTable( {
       "bProcessing": true,
       "sDom": "<'row'<'col-sm-6'l><'col-sm-6'f>r>t<'row'<'col-sm-6'i><'col-sm-6'p>>",
       "sPaginationType": "full_numbers",
-      "aoColumns": [
-        { "mData": "engine" },
-        { "mData": "browser" },
-        { "mData": "platform" },
-        { "mData": "version" },
-        { "mData": "grade" }
-      ]
+      // "aoColumns": [
+      //   { "mData": "engine" },
+      //   { "mData": "browser" },
+      //   { "mData": "platform" },
+      //   { "mData": "version" },
+      //   { "mData": "grade" }
+      // ]
     } );
 $('#product').dataTable( {
           "aaData": data,    
