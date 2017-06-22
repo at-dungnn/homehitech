@@ -24,6 +24,7 @@ class CreateProductTable extends Migration
             $table->string('img_path');
             $table->text('thong_so');
             $table->string('category_id',50);
+            $table->boolean('delete');
             $table->timestamps();
         });
     }
