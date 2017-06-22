@@ -12,10 +12,9 @@
     <!-- Add Style -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/agency.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dev_dung.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dev_viet.css') }}" rel="stylesheet">
     <link href="{{ asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-
-
-
 
     <!-- Add Link http -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -68,7 +67,8 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-heading">HomeHiTech</div>
+                <div class="intro-heading">Home - HiTech</div>
+                <a href="#services" class="page-scroll btn btn-xl">Dịch Vụ</a>
             </div>
         </div>
     </header>
@@ -79,14 +79,20 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Dịch Vụ</h2>
-                    <h3 class="section-subheading text-muted">Chuyên cung cấp sản phẩm đèn LED, đèn trang trí, sản phẩm công nghệ</h3>
+                    <h3 class="section-subheading text-muted">
+                        <p>Đại lý phân phối chính hãng của các loại đèn led chiếu sáng chất lượng tốt, có danh tiếng trên thị trường Việt Nam như: Kingled, TLC, ...</p>
+                        <p>Các sản phẩm Đèn led được bày bán tại website luôn là các sản phẩm chính hãng, bảo hành chính hãng.</p>
+                        <p>Hình ảnh và nội dung về các sản phẩm bóng đèn led chiếu sáng rõ ràng, mạch lạc, chuẩn với thực tế sản phẩm, luôn cập nhật bảng báo giá liên tục, và các hỗ trợ của nhà sản xuất</p>
+                    </h3>
+                    
                 </div>
             </div>
             <div class="row text-center">
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        <!-- <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i> -->
+                        <i class="fa fa-lightbulb-o fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Bóng Đèn</h4>
                     <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
@@ -102,7 +108,7 @@
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                        <i class="fa fa-camera-retro fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Camera</h4>
                     <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
