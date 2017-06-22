@@ -3,3 +3,13 @@ section h3.section-subheading{
     padding-left: 10%;
     padding-right: 10%;
 }
+.btn-xl{
+	background-color: #4a818c;
+    border-color: #4a818c;
+}
+.navbar-custom .navbar-brand{
+	color: #cc3335;
+}
+.navbar-custom .navbar-nav > .active > a{
+	background-color: #4a818c;
+}
