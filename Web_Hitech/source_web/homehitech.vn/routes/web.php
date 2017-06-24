@@ -37,7 +37,11 @@ Route::prefix('admin')->group(function () {
 	Route::post('category/delete', 'CategoryController@postDelete')->name('admin.category.delete');
 
 	Route::get('users', 'AccountController@Index')->name('admin.users');
+	Route::get('users/list', 'AccountController@getList')->name('admin.users.list');
 	Route::post('users', 'AccountController@postUpdate');
+	Route::get('users/add', 'AccountController@getAdd')->name('admin.users.add');
+	Route::post('users/add', 'AccountController@postAdd');
+	Route::post('users/delete', 'AccountController@postDelete')->name('admin.users.delete');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

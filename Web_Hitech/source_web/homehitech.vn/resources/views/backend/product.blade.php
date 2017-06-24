@@ -44,7 +44,7 @@ $('#product').dataTable( {
     "ajax": "{{route('admin.product.list')}}",
       "bProcessing": true,
       "sDom": "<'row'<'col-sm-6'l><'col-sm-6'f>r>t<'row'<'col-sm-6'i><'col-sm-6'p>>",
-      "sPaginationType": "full_numbers",
+      // "sPaginationType": "full_numbers",
       "aoColumns": [
         { "data": "id",
         render : function(data){
@@ -71,7 +71,7 @@ $('#product').dataTable( {
 $(document).on("click",".delete-product",function(){
     var id= $(this).attr('data-id');
     var _this=this;
-    if(confirm("Bạn chắc chắn muốn xóa sản phẩm này?")){
+    if(confirm("Bạn chắc chắn muốn xóa sản phẩm này không?")){
         $.ajax({
             url:'{{route('admin.product.delete')}}',
             data:{id:id},

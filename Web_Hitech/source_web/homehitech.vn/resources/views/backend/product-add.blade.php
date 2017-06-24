@@ -156,8 +156,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
-                                    <button type="button" class="btn btn-default">Reset</button>
-                                    <button type="button" class="btn btn-primary btn-save">Save</button>
+                                    <button type="button" class="btn btn-primary btn-save">Thêm</button>
                                 </div>
                             </div>
                         </form>

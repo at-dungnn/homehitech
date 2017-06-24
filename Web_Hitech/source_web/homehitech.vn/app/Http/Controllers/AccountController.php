@@ -37,4 +37,49 @@ class AccountController extends Controller
     		return redirect()->back()->withErrors();
     	}
     }
+    public function getAdd(){
+        return view('backend.users-add',['isActive'=>'users']);
+    }
+    public function postAdd(Request $request){        
+        $messages= [
+        'fullname.required'=>'Họ và tên không được để trống.',
+        'email.required'   =>'Email không được để trống.',
+        'email.email'      =>'Email không đúng định dạng.',
+        'password.required'=>'Mật khẩu không được để trống.',
+        ];
+        $this->validate($request, [
+            'fullname' => 'required|string',
+            'email'    => 'required|email',
+            'password' => 'required|string',
+        ],$messages);
+        $user = new User;
+        $user->name=$request->fullname;
+        $user->email=$request->email;
+        $user->password=bcrypt($request->password);
+        $save=$user->save();
+        if($save){
+            Session::flash('status', 'Thêm tài khoản mới thành công!');
+            return redirect()->route('admin.users');
+        }else{
+            return redirect()->back()->withErrors();  
+        }        
+    }
+    public function getList(){
+        if(Auth::user()->id=="1"){
+            $user = User::all();  
+        }else{
+           $user = ""; 
+        }       
+        return response()->json(array('data'=>$user));
+    }
+    public function postDelete(Request $request){
+        if(Auth::user()->id=="1"){
+            $user = User::where('id',$request->id)->delete();
+            if($user){
+                return response()->json(array('status'=>'ok'));
+            }else{
+                return response()->json(array('status'=>'ng'));
+            }
+        }
+    }
 }

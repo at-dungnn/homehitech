@@ -40,7 +40,7 @@ $('#category').dataTable( {
     "ajax": "{{route('admin.category.list')}}",
       "bProcessing": true,
       "sDom": "<'row'<'col-sm-6'l><'col-sm-6'f>r>t<'row'<'col-sm-6'i><'col-sm-6'p>>",
-      "sPaginationType": "full_numbers",
+      // "sPaginationType": "full_numbers",
       "aoColumns": [
         { "data": "id",
         render:function(data){
@@ -60,7 +60,7 @@ $('#category').dataTable( {
 $(document).on("click",".delete-category",function(){
     var id= $(this).attr('data-id');
     var _this=this;
-    if(confirm("Bạn chắc chắn muốn xóa danh mục này?")){
+    if(confirm("Bạn chắc chắn muốn xóa danh mục này không?")){
         $.ajax({
             url:'{{route('admin.category.delete')}}',
             data:{id:id},
