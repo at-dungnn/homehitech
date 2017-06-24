@@ -10,17 +10,24 @@
 	      <a href="{{route('admin.product.add')}}" class="btn btn-s-md btn-primary m-b-none"><i class="fa fa-plus"></i> Thêm</a>
         </div>
         <section class="panel panel-default">
+        @if (Session::has('status'))            
+            <div class="alert alert-success alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                {{ Session::get('status') }}
+            </div>
+        @endif
             <div class="table-responsive">
                 <table class="table table-striped m-b-none" data-ride="datatables" id="product">
                     <thead>
                         <tr>
+                            <th width="5%">ID</th>
                             <th width="20%">Tên sản phẩm</th>
                             <th width="15%">Mã sản phẩm</th>
                             <th width="15%">Công Suất</th>
                             <th width="15%">Kích thước</th>
                             <th width="15%">Khoét lỗ</th>
                             <th width="15%">Giá</th>
-                            <th width="10%">Action</th>
+                            <th width="15%">Delete</th>
                         </tr>
                     </thead>
                     <tbody> </tbody>
@@ -33,21 +40,46 @@
 @section('script')
 <script src="{{asset('backend/js/datatables/jquery.dataTables.min.js')}}"></script>
 <script type="text/javascript">
-var data= "{{$data}}";
-console.log(data);
-var oTable = $('#product').dataTable( {
+$('#product').dataTable( {
+    "ajax": "{{route('admin.product.list')}}",
       "bProcessing": true,
       "sDom": "<'row'<'col-sm-6'l><'col-sm-6'f>r>t<'row'<'col-sm-6'i><'col-sm-6'p>>",
       "sPaginationType": "full_numbers",
       "aoColumns": [
-        { "mData": "ten_sanpham" },
-        { "mData": "ma_sanpham" },
-        { "mData": "cong_suat" },
-        { "mData": "kich_thuoc" },
-        { "mData": "khoet_lo" },
-        { "mData": "gia" }
+        { "data": "id",
+        render:function(data){
+            return "<a href='product/edit/"+data+"'>"+data+"</a>";
+        }},
+        { "data": "ten_sanpham"},
+        { "data": "ma_sanpham" },
+        { "data": "cong_suat" },
+        { "data": "kich_thuoc" },
+        { "data": "khoet_lo" },
+        { "data": "gia" },
+        { "data": "id",
+        render:function(data){
+            return "<span class='delete-product' data-id='"+data+"'><i class='glyphicon glyphicon-remove'></i></span>";
+        }},
       ]
-    } );
-oTable.row.add(data);
+});
+$(document).on("click",".delete-product",function(){
+    var id= $(this).attr('data-id');
+    var _this=this;
+    if(confirm("Bạn chắc chắn muốn xóa sản phẩm này?")){
+        $.ajax({
+            url:'{{route('admin.product.delete')}}',
+            data:{id:id},
+            dataType:'json',
+            type:'post',
+            success: function(res){
+                if(res.status=='ok'){
+                    $(_this).closest('tr').remove();
+                }else{
+                    alert('Delete Fail');
+                }
+            }
+        })
+    }
+});
 </script>
 @endsection

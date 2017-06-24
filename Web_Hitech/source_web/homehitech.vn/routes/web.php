@@ -20,12 +20,20 @@ Route::prefix('admin',['middleware' => ['web','auth']])->group(function () {
 	Route::get('/', 'DashboardControler@Index')->name('admin');
 	Route::get('login', 'AdminLoginController@Index')->name('admin.login');
 	Route::get('product', 'ProductController@Index')->name('admin.product');
+	Route::get('product/list', 'ProductController@getList')->name('admin.product.list');
 	Route::get('product/add', 'ProductController@getAdd')->name('admin.product.add');
 	Route::post('product/add', 'ProductController@postAdd')->name('admin.product.postadd');
+	Route::get('product/edit/{id}', 'ProductController@getEdit')->name('admin.product.edit');
+	Route::post('product/edit/{id}', 'ProductController@postEdit')->name('admin.product.postedit');
+	Route::post('product/delete', 'ProductController@postDelete')->name('admin.product.delete');
 
 	Route::get('category', 'CategoryController@Index')->name('admin.category');
 	Route::get('category/add', 'CategoryController@getAdd')->name('admin.category.add');
 	Route::post('category/add', 'CategoryController@postAdd');
+	Route::get('category/edit/{id}', 'CategoryController@getEdit')->name('admin.category.edit');
+	Route::post('category/edit/{id}', 'CategoryController@postEdit')->name('admin.category.postedit');
+	Route::get('category/list', 'CategoryController@getList')->name('admin.category.list');
+	Route::post('category/delete', 'CategoryController@postDelete')->name('admin.category.delete');
 
 	Route::get('users', 'AccountController@Index')->name('admin.users');
 });
