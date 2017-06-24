@@ -8,6 +8,8 @@
         <div class="m-b-md">
 	      <a href="{{route('admin.users.add')}}" class="btn btn-s-md btn-primary m-b-none"><i class="fa fa-plus"></i> Thêm tài khoản</a>
         </div>
+        <div class="row">
+        <div class="col-lg-12">
         <section class="panel panel-default">
         	<div class="panel-body">
 	        	@if (Session::has('status'))            
@@ -78,7 +80,16 @@
 
                 </div>
         		
-                @if(Auth::user()->id=="1")
+                
+        	</div>  
+        </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+        <section class="panel panel-default">
+            <div class="panel-body">
+            @if(Auth::user()->id=="1")
                 <div class="table-responsive">
                     <table class="table table-striped b-t b-light" data-ride="datatables" id="users">
                         <thead>
@@ -94,9 +105,10 @@
                     </table>
                 </div>
                 @endif
-        	</div>  
-                                 
+            </div>
         </section>
+        </div>
+    </div>
     </section>
 @endsection
 @section('script')
