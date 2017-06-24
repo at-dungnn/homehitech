@@ -96,7 +96,7 @@
                         <i class="fa fa-lightbulb-o fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Bóng Đèn</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <p class="text-muted">Bóng đèn led chiếu sáng chính hãng, chất lượng cao, giá thành cạnh tranh. Website này sẽ do các chuyên viên tư vấn có kinh nghiệm chuyên sâu về các loại đèn led chiếu sáng, thiết kế bố trí ánh sáng trong không gian chiếu sáng quản lý và phụ trách</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
@@ -104,7 +104,7 @@
                         <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Thiết bị viễn thông</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <p class="text-muted">Cung cấp những dịch vụ đơn giản cho các nhà mạng viễn thông di động Mobifone, Vinaphone …như thiết kế xây dựng nhà trạm anten, lắp đặt thiết bị outdoor, trạm điện, dựng trụ</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
@@ -112,7 +112,7 @@
                         <i class="fa fa-camera-retro fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading">Camera</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <p class="text-muted">Cung cấp thiết bị camera cho các cá nhân, doanh nghiệp chọn phương án lắp camera quan sát ở nhà/cửa hàng/doanh nghiệp và lắp camera hành trình cho xe ô tô để vừa đảm bảo an ninh, tăng hiệu quả giám sát, quản lý công việc và bảo vệ bản thân khỏi những rủi ro đáng tiếc.</p>
                 </div>
             </div>
         </div>
