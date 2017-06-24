@@ -15,15 +15,16 @@
             <div class="col-sm-12">
                 <section class="panel panel-default">
                     <div class="panel-body">
-                    	<form role="form" class="form-product form-horizontal" method="POST" action="{{route('admin.product.postadd')}}" enctype="multipart/form-data">
+                    	<form role="form" class="form-product form-horizontal" method="POST" action="" enctype="multipart/form-data">
                             {{ csrf_field() }}
+                            <input type="hidden" name="id" class="id" value="{!!$data['0']->id or ''!!}">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">
                                 	Tên sản phẩm
                                 	<span class="required">*</span>
                                 </label>
                                 <div class="col-sm-8">
-                                    <input type="text" name="ten_sanpham" class="ten_sanpham form-control" maxlength="255"> 
+                                    <input type="text" name="ten_sanpham" class="ten_sanpham form-control" value="{!!$data['0']->ten_sanpham or ''!!}"> 
                                     @if ($errors->has('ten_sanpham'))
                                         <div class="help-block">
                                             <strong>{{ $errors->first('ten_sanpham') }}</strong>
@@ -37,7 +38,7 @@
                                 	<span class="required">*</span>
                                 </label>
                                 <div class="col-sm-4">
-                                    <input type="text" name="ma_sanpham" class="ma_sanpham form-control" maxlength="255"> 
+                                    <input type="text" name="ma_sanpham" class="ma_sanpham form-control" value="{!!$data['0']->ma_sanpham or ''!!}"> 
                                     @if ($errors->has('ma_sanpham'))
                                         <div class="help-block">
                                             <strong>{{ $errors->first('ma_sanpham') }}</strong>
@@ -54,7 +55,7 @@
                                     <select name="category_id" class="category_id form-control">
                                     <option></option>
                                     @foreach($category as $key=>$val)
-                                        <option value="{{$val->id}}">{{$val->name}}</option>
+                                        <option value="{{$val->id}}" @if($data['0']->category_id==$val->id) selected @endif>{{$val->name}}</option>
                                     @endforeach
                                     </select>
                                     @if ($errors->has('category_id'))
@@ -67,25 +68,25 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Công suất</label>
                                 <div class="col-sm-4">
-                                    <input type="text" name="cong_suat" class="cong_suat form-control" maxlength="50">
+                                    <input type="text" name="cong_suat" class="cong_suat form-control" value="{!!$data['0']->cong_suat or ''!!}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Kích thước</label>
                                 <div class="col-sm-4">
-                                    <input type="text" name="kich_thuoc" class="kich_thuoc form-control" maxlength="50">
+                                    <input type="text" name="kich_thuoc" class="kich_thuoc form-control" value="{!!$data['0']->kich_thuoc or ''!!}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Khoét lỗ</label>
                                 <div class="col-sm-4">
-                                    <input type="text" name="khoet_lo" class="khoet_lo form-control" maxlength="50">
+                                    <input type="text" name="khoet_lo" class="khoet_lo form-control" value="{!!$data['0']->khoet_lo or ''!!}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Giá</label>
                                 <div class="col-sm-4">
-                                    <input type="text" name="gia" class="gia form-control" maxlength="20">
+                                    <input type="text" name="gia" class="gia form-control" value="{!!$data['0']->gia or ''!!}">
                                     @if ($errors->has('gia'))
                                         <div class="help-block">
                                             <strong>{{ $errors->first('gia') }}</strong>
@@ -97,7 +98,7 @@
                                 <label class="col-sm-2 control-label">Hình ảnh</label>
                                 <div class="col-sm-4">
                                     <input type="file" style="display: none" name="img_path" class="img_path form-control">                                    
-                                    <img src="http://twodaftyanks.com/wp-content/uploads/2015/08/preview-14.png" class="preview-img" width="200px" height="200px">
+                                    <img src="../../../upload/{!!$data['0']->img_path or 'img-preview.png'!!}" class="preview-img" width="200px" height="200px">
                                     <button type="button" class="btn btn-primary btn-upload">Upload...</button>
                                 </div>
                             </div>
@@ -148,7 +149,7 @@
                                             <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" /> </div>
                                         <div class="btn-group"> <a class="btn btn-default btn-sm" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a> <a class="btn btn-default btn-sm" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a> </div>
                                     </div>
-                                    <div id="editor" class="form-control" style="overflow:scroll;height:150px;max-height:150px"></div>
+                                    <div id="editor" class="form-control" style="overflow:scroll;height:150px;max-height:150px">{!!$data['0']->thong_so or ''!!}</div>
                                     @if ($errors->has('category_id'))
                                         <div class="help-block">
                                             <strong>{{ $errors->first('thong_so') }}</strong>
@@ -201,5 +202,6 @@
 	            reader.readAsDataURL(input.files[0]);
 	        }
 	    }
+        // $("#editor").html("{!!$data['0']->thong_so or ''!!}");
     </script>
 @endsection
