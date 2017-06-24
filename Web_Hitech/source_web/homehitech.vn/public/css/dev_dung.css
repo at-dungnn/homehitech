@@ -13,3 +13,19 @@ section h3.section-subheading{
 .navbar-custom .navbar-nav > .active > a{
 	background-color: #4a818c;
 }
+.navbar-custom .navbar-nav > .active > a:hover{
+	background-color: #4a818c;
+}
+.text-primary {
+    color: #c23234;
+}
+section h2.section-heading{
+	color: #c23234;
+}
+.navbar-custom .navbar-toggle{
+	background-color: #c23234;
+    border-color: #c23234;
+}
+img.img-circle.img-responsive{
+	margin: auto;
+}

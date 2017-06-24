@@ -224,7 +224,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Giải Pháp</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted">Cung cấp giải pháp dịch vụ tư vấn, thiết kế đèn, thiết bị viễn thông , camera</h3>
                 </div>
             </div>
             <div class="row">
@@ -233,43 +233,43 @@
                         <li>
                             <div class="timeline-image">
 
-                                <img class="img-circle img-responsive" src="{{ asset('images/about/1.jpg') }}" alt="">
+                                <img class="img-circle img-responsive" src="{{ asset('images/about/dentrangtri.jpg') }}" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>2009-2011</h4>
-                                    <h4 class="subheading">Our Humble Beginnings</h4>
+                                    <h4>Tư vấn miễn phí</h4>
+                                    <h4 class="subheading">Dịch vụ lắp ráp đèn trọn gói nhà ở</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">Với đội ngũ kinh doanh kinh nghiệm trên 5 năm , chắc chắn sẽ làm hài lòng quý khách khi lựa chọn gói giải pháp đèn trang trí cho toàn bộ căn nhà của bạn</p>
                                 </div>
                             </div>
                         </li>
                         <li class="timeline-inverted">
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="{{ asset('images/about/2.jpg') }}" alt="">
+                            <div>
+                                <img class="img-circle img-responsive" src="{{ asset('images/about/thietbivienthong.jpg') }}" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>March 2011</h4>
-                                    <h4 class="subheading">An Agency is Born</h4>
+                                    <h4>Thiết bị viễn thông</h4>
+                                    <h4 class="subheading">Gói giải pháp lắp rắp thiết bị viễn thông cho căn nhà của bạn</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">Với đội ngũ kinh nghiệm làm việc trên 5 năm sẽ mang đến các sự lựa chọn tốt nhất về các thiết bị viễn thông cho ngôi nhà của bạn</p>
                                 </div>
                             </div>
                         </li>
                         <li>
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="{{ asset('images/about/3.jpg') }}" alt="">
+                                <img class="img-circle img-responsive" src="{{ asset('images/about/camera.jpg') }}" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>December 2012</h4>
-                                    <h4 class="subheading">Transition to Full Service</h4>
+                                    <h4>Camera</h4>
+                                    <h4 class="subheading">Gói lắp ráp thiết bị chống trộm</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">Với đội ngũ kinh nghiệm làm việc trên 5 năm sẽ mang đến các sự lựa chọn tốt nhất về các thiết bị viễn thông mang đến sự oan toàn cho ngôi nhà của bạn</p>
                                 </div>
                             </div>
                         </li>
@@ -285,59 +285,50 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Đội Ngũ Nhân Viên</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted">Luôn hỗ trợ khách hàng 24/24</h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <img src="{{ asset('images/team/1.jpg') }}" class="img-responsive img-circle" alt="">
-                        <h4>Kay Garland</h4>
-                        <p class="text-muted">Lead Designer</p>
+                        <img src="{{ asset('images/team/nv1.jpg') }}" class="img-responsive img-circle" alt="">
+                        <h4>Dũng Nguyễn</h4>
+                        <p class="text-muted">Sale-Manager</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="https://www.facebook.com/dung.nguyennho"><i class="fa fa-facebook"></i></a>
                             </li>
                         </ul>
+                        <h3 style="color: #c23234">0932468357</h3>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <img src="{{ asset('images/team/2.jpg') }}" class="img-responsive img-circle" alt="">
-                        <h4>Larry Parker</h4>
-                        <p class="text-muted">Lead Marketer</p>
+                        <img src="{{ asset('images/team/gd.jpg') }}" class="img-responsive img-circle" alt="">
+                        <h4>Thảo Trần</h4>
+                        <p class="text-muted">Director</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="https://www.facebook.com/tranthanh.thao.79"><i class="fa fa-facebook"></i></a>
                             </li>
                         </ul>
+                        <h3 style="color: #c23234">0932346868</h3>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <img src="{{ asset('images/team/3.jpg') }}" class="img-responsive img-circle" alt="">
-                        <h4>Diana Pertersen</h4>
-                        <p class="text-muted">Lead Developer</p>
+                        <img src="{{ asset('images/team/nv2.jpg') }}" class="img-responsive img-circle" alt="">
+                        <h4>Thúy Nguyễn</h4>
+                        <p class="text-muted">Marketing</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
                             <li><a href="#"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
                         </ul>
+                        <h3 style="color: #c23234">0978378490</h3>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                    <p class="large text-muted">Nếu bạn không thấy sản phẩm mình đang tìm kiếm ở bên trên, hãy liên lạc ngay <span style="color: #c23234;font-size: 16px; font-weight: bold;font-family: recusandae;">0933336868</span> để có thêm sự lựa chọn.</p>
                 </div>
             </div>
         </div>
@@ -348,8 +339,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Thông Tin Liên Hệ</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading" style="color: #c23234">Thông Tin Liên Hệ</h2>
+                    <h4 style="color: #fff">Văn phòng trưng bày đại diện</h4>
+                    <h5 style="color: #fff">83 Điện Biên Phủ, Đà Nẵng</h5>
                 </div>
             </div>
         </div>
@@ -359,23 +351,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2016</span>
+                    <span class="copyright">Copyright &copy; HomeHiTech 2017</span>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        <li><a href="https://www.facebook.com/Home-Hi-Tech-1820442388266039/"><i class="fa fa-facebook"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
+                        <li><a href="#">Thế giới đèn LED</a>
                         </li>
-                        <li><a href="#">Terms of Use</a>
+                        <li><a href="#">Thiết bị viễn thông</a>
                         </li>
                     </ul>
                 </div>

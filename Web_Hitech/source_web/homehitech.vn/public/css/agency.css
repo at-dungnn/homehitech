@@ -28,7 +28,7 @@ a.active {
   outline: none;
 }
 a {
-  color: #fed136;
+  color: #c23234;
 }
 a:hover,
 a:focus,
@@ -173,7 +173,7 @@ fieldset[disabled] .btn-xl.active {
 }
 .navbar-custom .navbar-toggle:hover,
 .navbar-custom .navbar-toggle:focus {
-  background-color: #fed136;
+  background-color: #4a818c;
 }
 .navbar-custom .nav li a {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -554,7 +554,7 @@ aside.clients img {
 }
 section#contact {
   background-color: #222222;
-  background-image: url('/images/map-image.png');
+  background-image: url('/images/footer_image.jpg');
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -644,7 +644,7 @@ ul.social-buttons li a {
 ul.social-buttons li a:hover,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:active {
-  background-color: #fed136;
+  background-color: #c23234;
 }
 .btn:focus,
 .btn:active,
