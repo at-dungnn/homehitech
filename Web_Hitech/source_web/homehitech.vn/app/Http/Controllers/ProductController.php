@@ -10,9 +10,7 @@ use Session,Auth;
 class ProductController extends Controller
 {
     public function __construct(){
-        if(!Auth::check()){
-            return redirect()->back();
-        }
+        $this->middleware('auth');
     }
     public function Index(){        
     	return view('backend.product',['isActive'=>'product']);
@@ -28,25 +26,27 @@ class ProductController extends Controller
             $request->file('img_path')->move('upload',$filename);
         }
         $product = new Product;
-        $product->ten_sanpham =$request->ten_sanpham;
-        $product->ma_sanpham  =$request->ma_sanpham;
-        $product->cong_suat   =$request->cong_suat;
-        $product->kich_thuoc  =$request->kich_thuoc;
-        $product->khoet_lo    =$request->khoet_lo;
-        $product->gia         =$request->gia;
-        $product->thong_so    =$request->thong_so;
-        $product->category_id =$request->category_id;
-        $product->img_path    =$filename;
+        $product->ten_sanpham = $request->ten_sanpham;
+        $product->ma_sanpham  = $request->ma_sanpham;
+        $product->cong_suat   = $request->cong_suat;
+        $product->kich_thuoc  = $request->kich_thuoc;
+        $product->khoet_lo    = $request->khoet_lo;
+        $product->gia         = $request->gia;
+        $product->thong_so    = $request->thong_so;
+        $product->category_id = $request->category_id;
+        $product->img_path    = $filename;
+        $product->delete      = 0;
+        $product->created_by  = Auth::user()->id;
         $save = $product->save();
         if($save){
             Session::flash('status', 'Thêm sản phẩm mới thành công!');
             return redirect()->route('admin.product');
         }else{
-            return view('backend.product-add',['isActive'=>'product'])->withErrors();
+            return redirect()->back()->withErrors();
         }   	
     }
     public function getList(){
-        $product = Product::where('delete','0')->select('id','ten_sanpham','ma_sanpham','cong_suat','kich_thuoc','khoet_lo','gia')->get();
+        $product = Product::where('delete','0')->join('users','product.created_by','=','users.id')->select('product.id as id','product.ten_sanpham as ten_sanpham','product.ma_sanpham as ma_sanpham','product.gia as gia','users.name as created_by','product.created_at as created_at')->get();
         return response()->json(array('data'=>$product));
     }
     public function getEdit($id){
@@ -89,7 +89,7 @@ class ProductController extends Controller
             Session::flash('status', 'Sửa sản phẩm thành công!');
             return redirect()->route('admin.product');
         }else{
-            return view('backend.product-edit',['isActive'=>'product'])->withErrors();
+            return redirect()->back()->withErrors();
         }       
     }
     public function postDelete(Request $request){

@@ -15,35 +15,24 @@
     <section id="content" class="m-t-lg wrapper-md animated fadeInUp">
         <div class="container aside-xl"> <a class="navbar-brand block" href="index-2.html">Homehitech Admin</a>
             <section class="m-b-lg">
-                <form action="{{ route('login') }}" role="form" method="POST">
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
+                <form action="{{ route('password.email') }}" role="form" method="POST">
                     {{ csrf_field() }}
                     <div class="list-group {{ $errors->has('email') ? ' has-error' : '' }}">
                         <div class="list-group-item">
-                            <input type="email" placeholder="Email" name="email" class="form-control no-border" value="{{ old('email') }}" required autofocus> 
+                            <input type="email" placeholder="E-Mail Address" name="email" class="form-control no-border" value="{{ old('email') }}" required autofocus> 
                             @if ($errors->has('email'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
-                        </div>                        
-                        <div class="list-group-item {{ $errors->has('password') ? ' has-error' : '' }}">
-                            <input type="password" placeholder="Password" name="password" class="form-control no-border">
-                            @if ($errors->has('password'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('password') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-                                                    
-                        <div class="list-group-item">
-                            <label>
-                                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                            </label>
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
-                </form>
-                    <div class="text-center m-t m-b"><a href="{{ route('admin.reset') }}"><small>Forgot password?</small></a></div>
+                    <button type="submit" class="btn btn-lg btn-primary btn-block">Reset Password</button>
                     <div class="line line-dashed"></div>
             </section>
         </div>

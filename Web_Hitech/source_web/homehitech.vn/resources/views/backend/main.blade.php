@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Web Application</title>
+    <title>Administrator HomeHiTech</title>
     <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -18,6 +18,20 @@
         }
         .glyphicon {
             cursor: pointer;
+        }
+        .glyphicon-remove{
+            color:red;
+        }
+        .help-block{
+            color:red;
+        }
+        [data-notify="progressbar"] {
+            margin-bottom: 0px;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+            height: 5px;
         }
     </style>
 </head>
@@ -34,7 +48,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="thumb-sm avatar pull-left"> <img src="{{asset('backend/images/a0.png')}}" alt="..."> </span> {{Auth::user()->name}} <b class="caret"></b> </a>
                     <ul class="dropdown-menu animated fadeInRight">
-                        
+                        <li><a href="{{route('admin.users')}}">Thay đổi mật khẩu</a></li>
                         <li> 
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
@@ -62,6 +76,7 @@
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="thumb avatar pull-left m-r"> <img src="{{asset('backend/images/a0.png')}}" class="dker" alt="..."> <i class="on md b-black"></i> </span> <span class="hidden-nav-xs clear"> <span class="block m-t-xs"> <strong class="font-bold text-lt">{{Auth::user()->name}}</strong> <b class="caret"></b> </span> <span class="text-muted text-xs block">Administrator</span> </span>
                                         </a>
                                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                            <li><a href="{{route('admin.users')}}">Thay đổi mật khẩu</a></li>
                                             <li> <a href="{{ route('logout') }}"
                                                     onclick="event.preventDefault();
                                                              document.getElementById('logout-form').submit();">
@@ -88,8 +103,9 @@
                                         <li class="{{$isActive=='category'?'active':''}}">
                                             <a href="{{route('admin.category')}}" class="auto">   <i class="i i-stack icon"> </i> <span class="font-bold">Danh Mục</span> </a>
                                         </li>
+
                                         <li class="{{$isActive=='users'?'active':''}}">
-                                            <a href="{{route('admin.users')}}" class="auto">   <i class="i i-stack icon"> </i> <span class="font-bold">Thành viên</span> </a>
+                                            <a href="{{route('admin.users')}}" class="auto">   <i class="i i-stack icon"> </i> <span class="font-bold">Tài Khoản</span> </a>
                                         </li>
                                     </ul>
                                     
@@ -110,12 +126,10 @@
             </section>
         </section>
     </section>
+    
     <!-- Bootstrap -->
     <!-- App -->
-    <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+    <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{asset('backend/js/app.v1.js')}}"></script>
     <script src="{{asset('backend/js/charts/easypiechart/jquery.easy-pie-chart.js')}}"></script>
     <script src="{{asset('backend/js/charts/sparkline/jquery.sparkline.min.js')}}"></script>
@@ -130,12 +144,58 @@
     <script src="{{asset('backend/js/calendar/demo.js')}}"></script>
     <script src="{{asset('backend/js/sortable/jquery.sortable.js')}}"></script>
     <script src="{{asset('backend/js/app.plugin.js')}}"></script>
+    <script src="{{asset('backend/js/bootstrap-notify-master/bootstrap-notify.min.js')}}"></script>
     <script type="text/javascript">
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+        function showNotification(msg,type){           
+            $.notify({
+                // options
+                icon: 'fa fa-bell',
+                message: msg
+            },{
+                // settings
+                element: 'body',
+                position: null,
+                type: type,
+                allow_dismiss: true,
+                newest_on_top: false,
+                showProgressbar: false,
+                placement: {
+                    from: "top",
+                    align: "right"
+                },
+                offset: 20,
+                spacing: 10,
+                z_index: 1031,
+                delay: 5000,
+                timer: 1000,
+                url_target: '_blank',
+                mouse_over: null,
+                animate: {
+                    enter: 'animated fadeInDown',
+                    exit: 'animated fadeOutUp'
+                },
+                onShow: null,
+                onShown: null,
+                onClose: null,
+                onClosed: null,
+                icon_type: 'class',
+                template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+                    '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+                    '<span data-notify="icon"></span> ' +
+                    '<span data-notify="title">{1}</span> ' +
+                    '<span data-notify="message">{2}</span>' +
+                    '<div class="progress" data-notify="progressbar">' +
+                        '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+                    '</div>' +
+                    '<a href="{3}" target="{4}" data-notify="url"></a>' +
+                '</div>' 
+            });
+        }
     </script>
     @yield('script')
 

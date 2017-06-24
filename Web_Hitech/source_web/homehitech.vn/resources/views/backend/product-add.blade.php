@@ -1,9 +1,7 @@
 @extends('backend.main')
 @section('css')
 <style>
-    .help-block{
-        color:red;
-    }
+    
 </style>
 @endsection
 @section('content')

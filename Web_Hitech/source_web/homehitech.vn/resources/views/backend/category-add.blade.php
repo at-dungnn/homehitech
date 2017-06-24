@@ -16,7 +16,11 @@
                             </label>
                             <div class="col-sm-8">
                                 <input type="text" name="ten_danhmuc" class="ten_danhmuc form-control"> 
-                                {{ $errors->first('ten_danhmuc') }}
+                                @if ($errors->has('ten_danhmuc'))
+                                        <div class="help-block">
+                                            <strong>{{ $errors->first('ten_danhmuc') }}</strong>
+                                        </div>
+                                    @endif
                             </div>
                         </div>
                         <div class="form-group">

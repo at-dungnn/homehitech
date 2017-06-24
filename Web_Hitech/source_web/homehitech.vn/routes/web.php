@@ -16,9 +16,10 @@ Route::get('/', function () {
 });
 Auth::routes();
 
-Route::prefix('admin',['middleware' => ['web','auth']])->group(function () {
-	Route::get('/', 'DashboardControler@Index')->name('admin');
+Route::prefix('admin')->group(function () {
 	Route::get('login', 'AdminLoginController@Index')->name('admin.login');
+	Route::get('reset-password', 'AdminLoginController@getReset')->name('admin.reset');
+	Route::get('/', 'DashboardControler@Index')->name('admin');	
 	Route::get('product', 'ProductController@Index')->name('admin.product');
 	Route::get('product/list', 'ProductController@getList')->name('admin.product.list');
 	Route::get('product/add', 'ProductController@getAdd')->name('admin.product.add');
@@ -36,15 +37,7 @@ Route::prefix('admin',['middleware' => ['web','auth']])->group(function () {
 	Route::post('category/delete', 'CategoryController@postDelete')->name('admin.category.delete');
 
 	Route::get('users', 'AccountController@Index')->name('admin.users');
+	Route::post('users', 'AccountController@postUpdate');
 });
-
-
-
-
-
-
-
-
-
 
 Route::get('/home', 'HomeController@index')->name('home');

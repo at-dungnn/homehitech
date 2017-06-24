@@ -25,6 +25,7 @@ class CreateProductTable extends Migration
             $table->text('thong_so');
             $table->string('category_id',50);
             $table->boolean('delete');
+            $table->string('created_by',50);
             $table->timestamps();
         });
     }

@@ -31,7 +31,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
+                    {{-- <div class="col-md-3 col-sm-6">
                         <div class="panel b-a">
                             <div class="panel-heading no-border bg-primary lt text-center">
                                 <a href="#"> <i class="fa fa-facebook fa fa-3x m-t m-b text-white"></i> </a>
@@ -56,7 +56,7 @@
                                     <div class="h3 font-bold">15k</div> <small class="text-muted">Followers</small> </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </section>
         </section>

@@ -8,6 +8,10 @@ use App\Category;
 use Session;
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function Index(){
         $category=Category::where('delete','0')->get();
     	return view('backend.category',['isActive'=>'category','category'=>$category]);
@@ -21,13 +25,14 @@ class CategoryController extends Controller
         $category->delete = 0;
         $save = $category->save();
         if($save){
+            Session::flash('status', 'Thêm danh mục mới thành công!');
             return redirect()->route('admin.category');
         }else{
-            return view('backend.category-add',['isActive'=>'category'])->withErrors();
+            return redirect()->back()->withErrors();
         }   	
     }
     public function getList(){
-        $category = Category::where('delete','0')->select('id','name')->get();
+        $category = Category::where('delete','0')->select('id','name','created_at')->get();
         return response()->json(array('data'=>$category));
     }
     public function postDelete(Request $request){
@@ -51,7 +56,7 @@ class CategoryController extends Controller
             Session::flash('status', 'Sửa danh mục thành công!');
             return redirect()->route('admin.category');
         }else{
-            return view('backend.category-edit',['isActive'=>'category'])->withErrors();
+            return redirect()->back()->withErrors();
         }       
     }
 }

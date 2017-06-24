@@ -20,8 +20,9 @@
                 <table class="table table-striped m-b-none" data-ride="datatables" id="category">
                     <thead>
                         <tr>
-                            <th width="5%">ID</th>
+                            <th width="10%">ID</th>
                             <th width="25%">Tên danh mục</th>
+                            <th width="25%">Ngày tạo</th>
                             <th width="15%">Delete</th>
                         </tr>
                     </thead>
@@ -46,6 +47,7 @@ $('#category').dataTable( {
             return "<a href='category/edit/"+data+"'>"+data+"</a>";
         }},
         { "data": "name"},
+        { "data": "created_at"},
         { "data": "id",
         render:function(data){
             return "<span class='delete-category' data-id='"+data+"'><i class='glyphicon glyphicon-remove'></i></span>";
@@ -64,6 +66,7 @@ $(document).on("click",".delete-category",function(){
             success: function(res){
                 if(res.status=='ok'){
                     $(_this).closest('tr').remove();
+                    showNotification("Xóa danh mục thành công!","danger");
                 }else{
                     alert('Delete Fail');
                 }

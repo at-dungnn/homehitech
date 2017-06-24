@@ -20,14 +20,13 @@
                 <table class="table table-striped m-b-none" data-ride="datatables" id="product">
                     <thead>
                         <tr>
-                            <th width="5%">ID</th>
+                            <th width="10%">ID</th>
                             <th width="20%">Tên sản phẩm</th>
                             <th width="15%">Mã sản phẩm</th>
-                            <th width="15%">Công Suất</th>
-                            <th width="15%">Kích thước</th>
-                            <th width="15%">Khoét lỗ</th>
                             <th width="15%">Giá</th>
-                            <th width="15%">Delete</th>
+                            <th width="15%">Người tạo</th>
+                            <th width="15%">Ngày tạo</th>
+                            <th width="5%">Delete</th>
                         </tr>
                     </thead>
                     <tbody> </tbody>
@@ -52,10 +51,12 @@ $('#product').dataTable( {
         }},
         { "data": "ten_sanpham"},
         { "data": "ma_sanpham" },
-        { "data": "cong_suat" },
-        { "data": "kich_thuoc" },
-        { "data": "khoet_lo" },
-        { "data": "gia" },
+        { "data": "gia",
+        render: function(data){
+            return data.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")+" VNĐ";
+        } },
+        { "data": "created_by" },
+        { "data": "created_at" },
         { "data": "id",
         render:function(data){
             return "<span class='delete-product' data-id='"+data+"'><i class='glyphicon glyphicon-remove'></i></span>";
@@ -74,6 +75,7 @@ $(document).on("click",".delete-product",function(){
             success: function(res){
                 if(res.status=='ok'){
                     $(_this).closest('tr').remove();
+                    showNotification("Xóa sản phẩm thành công!","danger");
                 }else{
                     alert('Delete Fail');
                 }
@@ -81,5 +83,6 @@ $(document).on("click",".delete-product",function(){
         })
     }
 });
+
 </script>
 @endsection
