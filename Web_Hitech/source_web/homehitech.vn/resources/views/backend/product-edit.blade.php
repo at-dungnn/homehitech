@@ -97,8 +97,8 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Hình ảnh</label>
                                 <div class="col-sm-4">
-                                    <input type="file" style="display: none" name="img_path" class="img_path form-control">                                    
-                                    <img src="../../../upload/{!!$data['0']->img_path or 'img-preview.png'!!}" class="preview-img" width="200px" height="200px">
+                                    <input type="file" style="display: none" name="img_path" class="img_path form-control">                                  
+                                    <img src="../../../upload/{{(isset($data['0']->img_path) && $data['0']->img_path!='')?$data['0']->img_path:"img-preview.png"}}" class="preview-img" width="200px" height="200px">
                                     <button type="button" class="btn btn-primary btn-upload">Upload...</button>
                                 </div>
                             </div>

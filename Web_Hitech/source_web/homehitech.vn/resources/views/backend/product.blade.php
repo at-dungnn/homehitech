@@ -24,6 +24,7 @@
                             <th width="20%">Tên sản phẩm</th>
                             <th width="15%">Mã sản phẩm</th>
                             <th width="15%">Giá</th>
+                            <th width="15%">Danh Mục</th>
                             <th width="15%">Người tạo</th>
                             <th width="15%">Ngày tạo</th>
                             <th width="5%">Delete</th>
@@ -46,17 +47,21 @@ $('#product').dataTable( {
       "sPaginationType": "full_numbers",
       "aoColumns": [
         { "data": "id",
-        render:function(data){
+        render : function(data){
             return "<a href='product/edit/"+data+"'>"+data+"</a>";
         }},
         { "data": "ten_sanpham"},
         { "data": "ma_sanpham" },
         { "data": "gia",
-        render: function(data){
+        render : function(data){
             return data.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")+" VNĐ";
-        } },
+        }},
+        { "data": "category" },
         { "data": "created_by" },
-        { "data": "created_at" },
+        { "data": "created_at",
+        render : function(data){
+            return data.substr(0, 10);
+        }},
         { "data": "id",
         render:function(data){
             return "<span class='delete-product' data-id='"+data+"'><i class='glyphicon glyphicon-remove'></i></span>";

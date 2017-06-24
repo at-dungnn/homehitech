@@ -46,7 +46,7 @@ class ProductController extends Controller
         }   	
     }
     public function getList(){
-        $product = Product::where('delete','0')->join('users','product.created_by','=','users.id')->select('product.id as id','product.ten_sanpham as ten_sanpham','product.ma_sanpham as ma_sanpham','product.gia as gia','users.name as created_by','product.created_at as created_at')->get();
+        $product = Product::where('product.delete','0')->join('users','product.created_by','=','users.id')->join('category','category.id','=','product.category_id')->select('product.id as id','product.ten_sanpham as ten_sanpham','product.ma_sanpham as ma_sanpham','product.gia as gia','category.name as category','users.name as created_by','product.created_at as created_at')->get();
         return response()->json(array('data'=>$product));
     }
     public function getEdit($id){

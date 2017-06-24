@@ -47,7 +47,10 @@ $('#category').dataTable( {
             return "<a href='category/edit/"+data+"'>"+data+"</a>";
         }},
         { "data": "name"},
-        { "data": "created_at"},
+        { "data": "created_at",
+        render : function(data){
+            return data.substr(0, 10);
+        }},
         { "data": "id",
         render:function(data){
             return "<span class='delete-category' data-id='"+data+"'><i class='glyphicon glyphicon-remove'></i></span>";
