@@ -21,6 +21,7 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
 </head>
 <body id="page-top" class="index">
 
@@ -123,11 +124,40 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Thông Tin Sản Phẩm</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 col-sm-6 portfolio-item">
+            <div class="row format-product">
+                <div class="col-md-4 col-sm-4 col-xs-12 ">
+                    <div class="format-product-detail light">
+                        <!-- <img src="{{ asset('images/icon/den.png') }}"> -->
+                        <h3>Đèn</h3>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="format-product-detail telecomunication">
+                        <!-- <img src="{{ asset('images/icon/vienthong-icon.png') }}"> -->
+                        <h3>Thiết bị viễn thông</h3>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12 ">
+                    <div class="format-product-detail camera">
+                        <!-- <img src="{{ asset('images/icon/camera.png') }}"> -->
+                        <h3>Camera</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row animated light-amination" style="margin-right: 3%;">
+                <ul style="list-style: none;margin-bottom: 10%;" class="format-ul">
+                    <li class="format-li active">
+                        Đèn âm trần
+                    </li>
+                    <li class="format-li">
+                        Đèn trang trí
+                    </li>
+                </ul>
+            </div>
+            <div class="row animated light-amination">
+                <div class="col-md-3 col-sm-6 portfolio-item">
                     <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -141,7 +171,7 @@
                         <p class="text-muted">Graphic Design</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
+                <div class="col-md-3 col-sm-6 portfolio-item">
                     <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -155,7 +185,7 @@
                         <p class="text-muted">Website Design</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
+                <div class="col-md-3 col-sm-6 portfolio-item">
                     <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -170,7 +200,7 @@
                         <p class="text-muted">Website Design</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
+                <div class="col-md-3 col-sm-6 portfolio-item">
                     <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -184,32 +214,147 @@
                         <p class="text-muted">Website Design</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+            </div>
+            <div class="row animated hidden telecom-amination" style="margin-right: 3%;">
+                <ul style="list-style: none;margin-bottom: 10%;" class="format-ul-vt">
+                    <li class="format-li-vt active">
+                        Thiết bị truyền hình
+                    </li>
+                    <li class="format-li-vt">
+                        Thiết bị quang, cáp quang
+                    </li>
+                    <li class="format-li-vt">
+                        Phụ kiện viễn thông
+                    </li>
+                </ul>
+            </div>
+            <div class="row animated hidden telecom-amination">
+                <div class="col-md-3 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
-                        </div>
-                        <img src="{{ asset('images/portfolio/escape.png') }}" class="img-responsive" alt="">
+                        </div>                        
+                        <img src="{{ asset('images/portfolio/roundicons.png') }}" class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Escape</h4>
+                        <h4>Round Icons</h4>
+                        <p class="text-muted">Graphic Design</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>                        
+                        <img src="{{ asset('images/portfolio/startup-framework.png') }}" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Startup Framework</h4>
                         <p class="text-muted">Website Design</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                <div class="col-md-3 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
 
-                        <img src="{{ asset('images/portfolio/dreams.png') }}" class="img-responsive" alt="">
+                        <img src="{{ asset('images/portfolio/treehouse.png') }}" class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Dreams</h4>
+                        <h4>Treehouse</h4>
+                        <p class="text-muted">Website Design</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{{ asset('images/portfolio/golden.png') }}" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Golden</h4>
+                        <p class="text-muted">Website Design</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row animated hidden camera-amination" style="margin-right: 3%;">
+                <ul style="list-style: none;margin-bottom: 10%;" class="format-ul-vt">
+                    <li class="format-li-vt active">
+                        Camera giám sát
+                    </li>
+                    <li class="format-li-vt">
+                        Phụ kiện Camera
+                    </li>
+                    <li class="format-li-vt">
+                        Chuông cửa
+                    </li>
+                </ul>
+            </div>
+            <div class="row animated hidden camera-amination">
+                <div class="col-md-3 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>                        
+                        <img src="{{ asset('images/portfolio/roundicons.png') }}" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Round Icons</h4>
+                        <p class="text-muted">Graphic Design</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>                        
+                        <img src="{{ asset('images/portfolio/startup-framework.png') }}" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Startup Framework</h4>
+                        <p class="text-muted">Website Design</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+
+                        <img src="{{ asset('images/portfolio/treehouse.png') }}" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Treehouse</h4>
+                        <p class="text-muted">Website Design</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{{ asset('images/portfolio/golden.png') }}" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Golden</h4>
                         <p class="text-muted">Website Design</p>
                     </div>
                 </div>
@@ -232,7 +377,6 @@
                     <ul class="timeline">
                         <li>
                             <div class="timeline-image">
-
                                 <img class="img-circle img-responsive" src="{{ asset('images/about/dentrangtri.jpg') }}" alt="">
                             </div>
                             <div class="timeline-panel">
@@ -564,6 +708,7 @@
     <script src="{{ asset('js/jqBootstrapValidation.js') }}"></script>
     <script src="{{ asset('js/contact_me.js') }}"></script>
     <script src="{{ asset('js/agency.min.js') }}"></script>
+    <script src="{{ asset('js/dev_dung.js') }}"></script>
 
 
     <!-- Plugin JavaScript -->

@@ -29,3 +29,45 @@ section h2.section-heading{
 img.img-circle.img-responsive{
 	margin: auto;
 }
+.format-product{
+	text-align: center;
+	margin-bottom: 1%;
+}
+.format-product-detail>h5{
+	color: #4a818c;
+	font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+}
+.format-product-detail:hover>h5{
+	color: #c23234;
+}
+.format-product-detail:hover{
+	border-bottom: 2px solid;
+    border-bottom-color: #c23234;
+    /*background: transparent;*/
+}
+.format-li{
+	width: 50%;
+    float: left;
+    background-color: #c23234;
+    padding: 1%;
+    font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+}
+li.format-li.active {
+    background: #4a818c;
+}
+li.format-li-vt.active {
+    background: #4a818c;
+}
+.format-li-vt{
+	width: 33%;
+    float: left;
+    background-color: #c23234;
+    padding: 1%;
+    font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+}
