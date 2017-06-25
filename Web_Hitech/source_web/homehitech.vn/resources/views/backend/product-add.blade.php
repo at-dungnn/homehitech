@@ -21,7 +21,7 @@
                                 	<span class="required">*</span>
                                 </label>
                                 <div class="col-sm-8">
-                                    <input type="text" name="ten_sanpham" class="ten_sanpham form-control" maxlength="255"> 
+                                    <input type="text" name="ten_sanpham" class="ten_sanpham form-control" maxlength="255" value="{{old('ten_sanpham')}}"> 
                                     @if ($errors->has('ten_sanpham'))
                                         <div class="help-block">
                                             <strong>{{ $errors->first('ten_sanpham') }}</strong>
@@ -35,7 +35,7 @@
                                 	<span class="required">*</span>
                                 </label>
                                 <div class="col-sm-4">
-                                    <input type="text" name="ma_sanpham" class="ma_sanpham form-control" maxlength="255"> 
+                                    <input type="text" name="ma_sanpham" class="ma_sanpham form-control" maxlength="255"  value="{{old('ma_sanpham')}}"> 
                                     @if ($errors->has('ma_sanpham'))
                                         <div class="help-block">
                                             <strong>{{ $errors->first('ma_sanpham') }}</strong>
@@ -65,28 +65,44 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Công suất</label>
                                 <div class="col-sm-4">
-                                    <input type="text" name="cong_suat" class="cong_suat form-control" maxlength="50">
+                                    <input type="text" name="cong_suat" class="cong_suat form-control" maxlength="50"  value="{{old('cong_suat')}}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Kích thước</label>
                                 <div class="col-sm-4">
-                                    <input type="text" name="kich_thuoc" class="kich_thuoc form-control" maxlength="50">
+                                    <input type="text" name="kich_thuoc" class="kich_thuoc form-control" maxlength="50" value="{{old('kich_thuoc')}}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Khoét lỗ</label>
                                 <div class="col-sm-4">
-                                    <input type="text" name="khoet_lo" class="khoet_lo form-control" maxlength="50">
+                                    <input type="text" name="khoet_lo" class="khoet_lo form-control" maxlength="50" value="{{old('khoet_lo')}}">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">Giá</label>
+                                <label class="col-sm-2 control-label">
+                                Giá tiền
+                                <span class="required">*</span>
+                                </label>
                                 <div class="col-sm-4">
-                                    <input type="text" name="gia" class="gia form-control" maxlength="20">
+                                    <input type="text" name="gia" class="gia form-control" maxlength="20" value="{{old('gia')}}">
                                     @if ($errors->has('gia'))
                                         <div class="help-block">
                                             <strong>{{ $errors->first('gia') }}</strong>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                Giảm giá (%)
+                                </label>
+                                <div class="col-sm-4">
+                                    <input type="text" name="giam_gia" class="giam_gia form-control" maxlength="20" value="{{old('giam_gia')}}">
+                                    @if ($errors->has('giam_gia'))
+                                        <div class="help-block">
+                                            <strong>{{ $errors->first('giam_gia') }}</strong>
                                         </div>
                                     @endif
                                 </div>
@@ -146,7 +162,7 @@
                                             <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" /> </div>
                                         <div class="btn-group"> <a class="btn btn-default btn-sm" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a> <a class="btn btn-default btn-sm" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a> </div>
                                     </div>
-                                    <div id="editor" class="form-control" style="overflow:scroll;height:150px;max-height:150px"></div>
+                                    <div id="editor" class="form-control" style="overflow:scroll;height:200px;max-height:200px">{{old('thong_so')}}</div>
                                     @if ($errors->has('category_id'))
                                         <div class="help-block">
                                             <strong>{{ $errors->first('thong_so') }}</strong>

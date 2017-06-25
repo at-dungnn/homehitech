@@ -104,10 +104,20 @@
                                             <a href="{{route('admin.category')}}" class="auto">   <i class="i i-stack icon"> </i> <span class="font-bold">Danh Mục</span> </a>
                                         </li>
                                         <li class="{{$isActive=='users'?'active':''}}">
-                                            <a href="{{route('admin.users')}}" class="auto"> <i class="fa  fa-user icon"> </i> <span class="font-bold">Tài Khoản</span> </a>
+                                            <a href="#" class="auto"> <i class="fa  fa-user icon"> </i> <span class="font-bold">Tài Khoản</span> </a>
+                                            <ul class="nav dk">
+                                                <li class="{{(isset($isActiveSub) && $isActiveSub=='update')?'active':''}}">
+                                                    <a href="{{route('admin.users')}}" class="auto"> <i class="i i-dot"></i> <span>Cập nhật tài khoản</span> </a>
+                                                </li>
+                                                @if(Auth::user()->id=='1')
+                                                <li class="{{(isset($isActiveSub) && $isActiveSub=='list')?'active':''}}">
+                                                    <a href="{{route('admin.users.list-all')}}" class="auto"> <i class="i i-dot"></i> <span>Danh sách</span> </a>
+                                                </li>
+                                                @endif
+                                            </ul>
                                         </li>
                                         <li class="{{$isActive=='contact'?'active':''}}">
-                                            <a href="{{route('admin.contact')}}" class="auto"> <i class="fa  fa-user icon"> </i> <span class="font-bold">Liên Hệ</span> </a>
+                                            <a href="{{route('admin.contact')}}" class="auto"> <i class="glyphicon glyphicon-phone-alt icon"> </i> <span class="font-bold">Liên Hệ</span> </a>
                                         </li>
                                     </ul>
                                     

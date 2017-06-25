@@ -10,7 +10,7 @@
 <section class="vbox">
     <section class="scrollable padder">
         <div class="m-b-md">
-            <h3 class="m-b-none">Thêm sản phẩm mới</h3> </div>
+            <h3 class="m-b-none">Cập nhật sản phẩm: {!!$data['0']->ten_sanpham or ''!!}</h3> </div>
         <div class="row">
             <div class="col-sm-12">
                 <section class="panel panel-default">
@@ -24,7 +24,7 @@
                                 	<span class="required">*</span>
                                 </label>
                                 <div class="col-sm-8">
-                                    <input type="text" name="ten_sanpham" class="ten_sanpham form-control" value="{!!$data['0']->ten_sanpham or ''!!}"> 
+                                    <input type="text" name="ten_sanpham" class="ten_sanpham form-control" value="{!!$data['0']->ten_sanpham or old('ten_sanpham')!!}"> 
                                     @if ($errors->has('ten_sanpham'))
                                         <div class="help-block">
                                             <strong>{{ $errors->first('ten_sanpham') }}</strong>
@@ -90,6 +90,19 @@
                                     @if ($errors->has('gia'))
                                         <div class="help-block">
                                             <strong>{{ $errors->first('gia') }}</strong>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                Giảm giá (%)
+                                </label>
+                                <div class="col-sm-4">
+                                    <input type="text" name="giam_gia" class="giam_gia form-control" maxlength="20" value="{!!$data['0']->giam_gia or ''!!}">
+                                    @if ($errors->has('giam_gia'))
+                                        <div class="help-block">
+                                            <strong>{{ $errors->first('giam_gia') }}</strong>
                                         </div>
                                     @endif
                                 </div>
@@ -202,6 +215,5 @@
 	            reader.readAsDataURL(input.files[0]);
 	        }
 	    }
-        // $("#editor").html("{!!$data['0']->thong_so or ''!!}");
     </script>
 @endsection

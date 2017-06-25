@@ -16,7 +16,7 @@
                             	<span class="required">*</span>
                             </label>
                             <div class="col-sm-8">
-                                <input type="text" name="fullname" class="fullname form-control"> 
+                                <input type="text" name="fullname" class="fullname form-control" value="{{old('fullname')}}"> 
                                 @if ($errors->has('fullname'))
                                         <div class="help-block">
                                             <strong>{{ $errors->first('fullname') }}</strong>
@@ -30,7 +30,7 @@
                                 <span class="required">*</span>
                             </label>
                             <div class="col-sm-8">
-                                <input type="text" name="email" class="email form-control"> 
+                                <input type="email" name="email" class="email form-control" value="{{old('email')}}"> 
                                 @if ($errors->has('email'))
                                         <div class="help-block">
                                             <strong>{{ $errors->first('email') }}</strong>

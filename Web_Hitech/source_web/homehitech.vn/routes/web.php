@@ -39,12 +39,14 @@ Route::prefix('admin')->group(function () {
 
 	Route::get('users', 'AccountController@Index')->name('admin.users');
 	Route::get('users/list', 'AccountController@getList')->name('admin.users.list');
+	Route::get('users/list-all', 'AccountController@getListAll')->name('admin.users.list-all');
 	Route::post('users', 'AccountController@postUpdate');
 	Route::get('users/add', 'AccountController@getAdd')->name('admin.users.add');
 	Route::post('users/add', 'AccountController@postAdd');
 	Route::post('users/delete', 'AccountController@postDelete')->name('admin.users.delete');
 
 	Route::get('contact', 'ContactController@Index')->name('admin.contact');
+	Route::post('contact', 'ContactController@postUpdate')->name('admin.update');
 
 });
 

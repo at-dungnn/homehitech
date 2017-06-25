@@ -7,7 +7,7 @@
     <section class="scrollable padder">
     	<br>
         <div class="m-b-md">
-	      <a href="{{route('admin.product.add')}}" class="btn btn-s-md btn-primary m-b-none"><i class="fa fa-plus"></i> Thêm</a>
+	      <a href="{{route('admin.product.add')}}" class="btn btn-s-md btn-primary m-b-none"><i class="fa fa-plus"></i> Thêm sản phẩm</a>
         </div>
         <section class="panel panel-default">
         @if (Session::has('status'))            
@@ -48,7 +48,7 @@ $('#product').dataTable( {
       "aoColumns": [
         { "data": "id",
         render : function(data){
-            return "<a href='product/edit/"+data+"'>"+data+"</a>";
+            return "<a href='product/edit/"+data+"' title='Edit'>"+data+"</a>";
         }},
         { "data": "ten_sanpham"},
         { "data": "ma_sanpham" },
@@ -64,7 +64,7 @@ $('#product').dataTable( {
         }},
         { "data": "id",
         render:function(data){
-            return "<span class='delete-product' data-id='"+data+"'><i class='glyphicon glyphicon-remove'></i></span>";
+            return "<span class='delete-product' data-id='"+data+"' title='Delete'><i class='glyphicon glyphicon-remove'></i></span>";
         }},
       ]
 });

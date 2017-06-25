@@ -12,7 +12,7 @@ class AccountController extends Controller
         $this->middleware('auth');
     }
     public function Index(){
-    	return view('backend.users',['isActive'=>'users']);
+    	return view('backend.users',['isActive'=>'users','isActiveSub'=>'update']);
     }
     public function postUpdate(UserRequest $request){
 
@@ -45,11 +45,12 @@ class AccountController extends Controller
         'fullname.required'=>'Họ và tên không được để trống.',
         'email.required'   =>'Email không được để trống.',
         'email.email'      =>'Email không đúng định dạng.',
+        'email.unique'     =>'Email đã tồn tại.',
         'password.required'=>'Mật khẩu không được để trống.',
         ];
         $this->validate($request, [
             'fullname' => 'required|string',
-            'email'    => 'required|email',
+            'email'    => 'required|email|unique:users',
             'password' => 'required|string',
         ],$messages);
         $user = new User;
@@ -59,7 +60,7 @@ class AccountController extends Controller
         $save=$user->save();
         if($save){
             Session::flash('status', 'Thêm tài khoản mới thành công!');
-            return redirect()->route('admin.users');
+            return redirect()->route('admin.users.list-all');
         }else{
             return redirect()->back()->withErrors();  
         }        
@@ -73,13 +74,23 @@ class AccountController extends Controller
         return response()->json(array('data'=>$user));
     }
     public function postDelete(Request $request){
-        if(Auth::user()->id=="1"){
+        if(Auth::user()->id=="1" && $request->id!='1'){
             $user = User::where('id',$request->id)->delete();
             if($user){
                 return response()->json(array('status'=>'ok'));
             }else{
                 return response()->json(array('status'=>'ng'));
             }
+        }else{
+            return response()->json(array('status'=>'ng'));
         }
+    }
+    public function getListAll(){
+        if(Auth::user()->id=='1'){
+            return view('backend.user-list',['isActive'=>'users','isActiveSub'=>'list']);   
+        }else{
+            return redirect()->back();
+        }
+        
     }
 }

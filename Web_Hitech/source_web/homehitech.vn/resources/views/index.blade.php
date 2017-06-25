@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:url"           content="http://homehitech.vn" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="HomeHiTech" />
+    <meta property="og:description"   content="Nhà Phân Phối Đèn LED Chiếu Sáng Cao Cấp - Uy Tín Hàng Đầu" />
+    <meta property="og:site_name"     content="Nhà Phân Phối Đèn LED Chiếu Sáng Cao Cấp" />
 
     <title>.::HomeHiTech::.</title>
     <!-- Add Style -->
@@ -24,6 +30,14 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
 </head>
 <body id="page-top" class="index">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId=472740299581688";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container">
@@ -157,6 +171,7 @@
             </div>
             <div class="row animated light1-amination">
                 @foreach($productLight1 as $value)
+                    <?php $giam_gia=$value->gia*$value->giam_gia/100 ?>
                     <div class="col-md-3 col-sm-6 portfolio-item">
                         <a href="#{{ $value->id }}" class="portfolio-link" data-toggle="modal">
                             <div class="portfolio-hover">
@@ -171,8 +186,14 @@
                             <p class="text-muted">Công suất : {{ $value->cong_suat }}</p>
                             <p class="text-muted">Kích thước : {{ $value->kick_thuoc }}</p>
                             <p class="text-muted">Khoét lỗ : {{ $value->khoet_lo }}</p>
-                            <p class="text-muted" style="color: red;">Giá : {{ $value->gia }}</p>
-                            <p class="text-muted" style="color: red;">Giảm giá : 132,000</p>
+                            @if($value->giam_gia!='')
+                            <strike>
+                            @endif
+                            <p class="text-muted" style="color: red;">Giá : {{ number_format($value->gia) }} đ</p>
+                            @if($value->giam_gia!='')
+                            </strike>
+                            <p class="text-muted" style="color: red;">Giảm giá : {{ number_format($value->gia - $giam_gia) }} đ ({{$value->giam_gia}}%)</p>
+                            @endif
                         </div>
                     </div>
                 @endforeach
@@ -199,12 +220,18 @@
                             <img src="{{ asset('images/portfolio/'.$value->img_path) }}" class="img-responsive" alt="">
                         </a>
                         <div class="portfolio-caption">
-                            <h4>Mã : {{ $value->ma_sanpham }}</h4>
+                           <h4>Mã : {{ $value->ma_sanpham }}</h4>
                             <p class="text-muted">Công suất : {{ $value->cong_suat }}</p>
                             <p class="text-muted">Kích thước : {{ $value->kick_thuoc }}</p>
                             <p class="text-muted">Khoét lỗ : {{ $value->khoet_lo }}</p>
-                            <p class="text-muted" style="color: red;">Giá : {{ $value->gia }}</p>
-                            <p class="text-muted" style="color: red;">Giảm giá : 132,000</p>
+                            @if($value->giam_gia!='')
+                            <strike>
+                            @endif
+                            <p class="text-muted" style="color: red;">Giá : {{ number_format($value->gia) }} đ</p>
+                            @if($value->giam_gia!='')
+                            </strike>
+                            <p class="text-muted" style="color: red;">Giảm giá : {{ number_format($value->gia - $giam_gia) }} đ ({{$value->giam_gia}}%)</p>
+                            @endif
                         </div>
                     </div>
                 @endforeach
@@ -234,12 +261,18 @@
                             <img src="{{ asset('images/portfolio/'.$value->img_path) }}" class="img-responsive" alt="">
                         </a>
                         <div class="portfolio-caption">
-                            <h4>Mã : {{ $value->ma_sanpham }}</h4>
+                           <h4>Mã : {{ $value->ma_sanpham }}</h4>
                             <p class="text-muted">Công suất : {{ $value->cong_suat }}</p>
                             <p class="text-muted">Kích thước : {{ $value->kick_thuoc }}</p>
                             <p class="text-muted">Khoét lỗ : {{ $value->khoet_lo }}</p>
-                            <p class="text-muted" style="color: red;">Giá : {{ $value->gia }}</p>
-                            <p class="text-muted" style="color: red;">Giảm giá : 132,000</p>
+                            @if($value->giam_gia!='')
+                            <strike>
+                            @endif
+                            <p class="text-muted" style="color: red;">Giá : {{ number_format($value->gia) }} đ</p>
+                            @if($value->giam_gia!='')
+                            </strike>
+                            <p class="text-muted" style="color: red;">Giảm giá : {{ number_format($value->gia - $giam_gia) }} đ ({{$value->giam_gia}}%)</p>
+                            @endif
                         </div>
                     </div>
                 @endforeach
@@ -273,8 +306,14 @@
                             <p class="text-muted">Công suất : {{ $value->cong_suat }}</p>
                             <p class="text-muted">Kích thước : {{ $value->kick_thuoc }}</p>
                             <p class="text-muted">Khoét lỗ : {{ $value->khoet_lo }}</p>
-                            <p class="text-muted" style="color: red;">Giá : {{ $value->gia }}</p>
-                            <p class="text-muted" style="color: red;">Giảm giá : 132,000</p>
+                            @if($value->giam_gia!='')
+                            <strike>
+                            @endif
+                            <p class="text-muted" style="color: red;">Giá : {{ number_format($value->gia) }} đ</p>
+                            @if($value->giam_gia!='')
+                            </strike>
+                            <p class="text-muted" style="color: red;">Giảm giá : {{ number_format($value->gia - $giam_gia) }} đ ({{$value->giam_gia}}%)</p>
+                            @endif
                         </div>
                     </div>
                 @endforeach
@@ -402,10 +441,33 @@
     <section id="contact">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
+                <div class="col-lg-12 text-center footer-contact">
                     <h2 class="section-heading" style="color: #c23234">Thông Tin Liên Hệ</h2>
-                    <h4 style="color: #fff">Văn phòng trưng bày đại diện</h4>
-                    <h5 style="color: #fff">83 Điện Biên Phủ, Đà Nẵng</h5>
+                    <ul>
+                        <li style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; text-align: center">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>Trụ sở: <span class="address-content" id="map-address" style="line-height:23px;">{{$contact->address}}</span>
+                        </li>
+                        <li class="phone-desc" style="font-family: Arial,'Helvetica Neue',Helvetica,sans-serif;">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                                <div>
+                                    <div class="wrap-phone">
+                                       <span class="span-bold address-li phone-title">
+                                            Số điện thoại: <a href="tel:{{$contact->phone_congty}}" class="tran3s">{{$contact->phone_congty}}</a>    
+                                        </span>
+                                    </div>
+                                    <div class="wrap-phone">                                       
+                                        <span class="span-bold address-li phone-title">
+                                            Đường dây nóng: <a href="tel:{{$contact->phone_canhan}}" class="tran3s">{{$contact->phone_canhan}}</a>
+                                        </span>
+                                        
+                                    </div>
+                                </div>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                            <span class="span-bold address-li phone-title">Email:&nbsp;</span><a href="mailto:{{$contact->email}}" class="tran3s">{{$contact->email}}</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -420,7 +482,7 @@
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
                         </li>
-                        <li><a href="https://www.facebook.com/Home-Hi-Tech-1820442388266039/"><i class="fa fa-facebook"></i></a>
+                        <li><a href="{{$contact->facebook}}"><i class="fa fa-facebook"></i></a>
                         </li>
                         </li>
                     </ul>
@@ -452,11 +514,17 @@
                         <div class="row">
                             <div class="col-lg-8 col-lg-offset-2">
                                 <div class="modal-body">
-                                    <h2>Mã : {{ $value->ma_sanpham }}</h2>
-                                    <img src="{{ asset('images/portfolio/'.$value->img_path) }}" class="img-responsive" alt="" style="margin: auto;">
-                                    <h2>Thông số chung</h2>
-                                    <p class="item-intro text-muted">{!! $value->thong_so !!}</p>
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h3>Mã : {{ $value->ma_sanpham }}</h3>
+                                            <img src="{{ asset('images/portfolio/'.$value->img_path) }}" class="img-responsive" alt="" style="margin: auto;"> 
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h3>Thông số chung</h3>
+                                            <p class="item-intro text-muted">{!! $value->thong_so !!}</p>
+                                            <div class="fb-send" data-href="{{$contact->facebook}}"></div>
+                                        </div>
+                                    </div>                                                                
                                 </div>
                             </div>
                         </div>
@@ -481,11 +549,17 @@
                         <div class="row">
                             <div class="col-lg-8 col-lg-offset-2">
                                 <div class="modal-body">
-                                    <h2>Mã : {{ $value->ma_sanpham }}</h2>
-                                    <img src="{{ asset('images/portfolio/'.$value->img_path) }}" class="img-responsive" alt="" style="margin: auto;">
-                                    <h2>Thông số chung</h2>
-                                    <p class="item-intro text-muted">{!! $value->thong_so !!}</p>
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                                   <div class="row">
+                                        <div class="col-md-6">
+                                            <h3>Mã : {{ $value->ma_sanpham }}</h3>
+                                            <img src="{{ asset('images/portfolio/'.$value->img_path) }}" class="img-responsive" alt="" style="margin: auto;"> 
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h3>Thông số chung</h3>
+                                            <p class="item-intro text-muted">{!! $value->thong_so !!}</p>
+                                            <div class="fb-send" data-href="{{$contact->facebook}}"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -506,6 +580,34 @@
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
+    <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+      <style>
+        #cfacebook{position:fixed;bottom:0px;right:10px;z-index:999999999999999;width:250px;height:auto;box-shadow:6px 6px 6px 10px rgba(0,0,0,0.2);overflow:hidden;}
+        #cfacebook .fchat{float:left;width:100%;height:270px;overflow:hidden;display:none;background-color:#fff;}
+        #cfacebook .fchat .fb-page{margin-top:-130px;float:left;}
+        #cfacebook a.chat_fb{float:left;padding:0 25px;width:250px;color:#fff;text-decoration:none;height:40px;line-height:40px;text-shadow:0 1px 0 rgba(0,0,0,0.1);background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAqCAMAAABFoMFOAAAAWlBMV…8/UxBxQDQuFwlpqgBZBq6+P+unVY1GnDgwqbD2zGz5e1lBdwvGGPE6OgAAAABJRU5ErkJggg==);background-repeat:repeat-x;background-size:auto;background-position:0 0;background-color:#3a5795;border:0;border-bottom:1px solid #133783;z-index:9999999;margin-right:12px;font-size:15px;}
+        #cfacebook a.chat_fb:hover{color:yellow;text-decoration:none;}
+      </style>
+      <script>
+      jQuery(document).ready(function () {
+      jQuery(".chat_fb").click(function() {
+      jQuery('.fchat').toggle('slow');
+      });
+      });
+  </script>
+  <div id="cfacebook">
+        <a href="javascript:;" class="chat_fb" onclick="return:false;"><i class="fa fa-facebook-square"></i> CHAT LIVE FACEBOOK</a>
+      <div class="fchat">
+        <div class="fb-page" data-tabs="messages" data-href="{{$contact->facebook}}" data-width="250" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
+      </div>
+  </div>
 </body>
 
 </html>

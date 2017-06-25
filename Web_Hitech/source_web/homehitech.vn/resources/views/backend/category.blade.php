@@ -7,7 +7,7 @@
     <section class="scrollable padder">
     	<br>
         <div class="m-b-md">
-	      <a href="{{route('admin.category.add')}}" class="btn btn-s-md btn-primary m-b-none"><i class="fa fa-plus"></i> Thêm</a>
+	      <a href="{{route('admin.category.add')}}" class="btn btn-s-md btn-primary m-b-none"><i class="fa fa-plus"></i> Thêm danh mục</a>
         </div>
         <section class="panel panel-default">
             @if (Session::has('status'))            
@@ -44,7 +44,7 @@ $('#category').dataTable( {
       "aoColumns": [
         { "data": "id",
         render:function(data){
-            return "<a href='category/edit/"+data+"'>"+data+"</a>";
+            return "<a href='category/edit/"+data+"' title='Edit'>"+data+"</a>";
         }},
         { "data": "name"},
         { "data": "created_at",
@@ -53,7 +53,7 @@ $('#category').dataTable( {
         }},
         { "data": "id",
         render:function(data){
-            return "<span class='delete-category' data-id='"+data+"'><i class='glyphicon glyphicon-remove'></i></span>";
+            return "<span class='delete-category' data-id='"+data+"' title='Delete'><i class='glyphicon glyphicon-remove'></i></span>";
         }},
       ]
 });

@@ -15,12 +15,12 @@ class CreateContactTable extends Migration
     {
         Schema::create('contact', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('address');
             $table->string('phone_canhan',20);
             $table->string('phone_congty',20);
             $table->string('email',200);
             $table->string('skype',200);
             $table->string('facebook');
-            $table->timestamps();
         });
     }
 

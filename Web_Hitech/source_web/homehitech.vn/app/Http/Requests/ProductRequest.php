@@ -25,10 +25,11 @@ class ProductRequest extends FormRequest
     {
         return [
             'ten_sanpham'=>'required',
-            'ma_sanpham' =>'required',
+            'ma_sanpham' =>'required|unique:product',
             'category_id'=>'required',
             'thong_so'   =>'required',
             'gia'        =>'required|numeric',
+            'giam_gia'   =>'numeric',
 
         ];
     }
@@ -37,10 +38,12 @@ class ProductRequest extends FormRequest
         return [
             'ten_sanpham.required' =>'Tên sản phẩm không được để trống',
             'ma_sanpham.required'  =>'Mã sản phẩm không được để trống',
+            'ma_sanpham.unique'    =>'Mã sản phẩm đã tồn tại',
             'category_id.required' =>'Danh mục không được để trống',
             'thong_so.required'    =>'Thông số không được để trống',
             'gia.required'         =>'Giá tiền không được để trống',
             'gia.numeric'          =>'Giá tiền phải là số',
+            'giam_gia.numeric'     =>'Phần trăm phải là số'
 
         ];
     }

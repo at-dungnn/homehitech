@@ -26,13 +26,14 @@ class ProductController extends Controller
             $request->file('img_path')->move('upload',$filename);
         }
         $product = new Product;
-        $product->ten_sanpham = $request->ten_sanpham;
-        $product->ma_sanpham  = $request->ma_sanpham;
-        $product->cong_suat   = $request->cong_suat;
-        $product->kich_thuoc  = $request->kich_thuoc;
-        $product->khoet_lo    = $request->khoet_lo;
-        $product->gia         = $request->gia;
-        $product->thong_so    = $request->thong_so;
+        $product->ten_sanpham = trim($request->ten_sanpham);
+        $product->ma_sanpham  = trim($request->ma_sanpham);
+        $product->cong_suat   = trim($request->cong_suat);
+        $product->kich_thuoc  = trim($request->kich_thuoc);
+        $product->khoet_lo    = trim($request->khoet_lo);
+        $product->gia         = trim($request->gia);
+        $product->thong_so    = trim($request->thong_so);
+        $product->giam_gia    = trim($request->giam_gia);
         $product->category_id = $request->category_id;
         $product->img_path    = $filename;
         $product->delete      = 0;
@@ -46,16 +47,38 @@ class ProductController extends Controller
         }   	
     }
     public function getList(){
-        $product = Product::where('product.delete','0')->join('users','product.created_by','=','users.id')->join('category','category.id','=','product.category_id')->select('product.id as id','product.ten_sanpham as ten_sanpham','product.ma_sanpham as ma_sanpham','product.gia as gia','category.name as category','users.name as created_by','product.created_at as created_at')->get();
+        $product = Product::where('product.delete','0')
+                    ->leftJoin('users', function($join) {$join->on('product.created_by','=','users.id');})
+                    ->leftJoin('category', function($join) {$join->on('category.id','=','product.category_id');})
+                    ->select('product.id as id','product.ten_sanpham as ten_sanpham','product.ma_sanpham as ma_sanpham','product.gia as gia','category.name as category','users.name as created_by','product.created_at as created_at')
+                    ->get();
         return response()->json(array('data'=>$product));
     }
     public function getEdit($id){
-        $product = Product::where([['delete','0'],['id',$id]])->select('id','ten_sanpham','ma_sanpham','cong_suat','kich_thuoc','khoet_lo','gia','img_path','category_id','thong_so')->get();
+        $product = Product::where([['delete','0'],['id',$id]])->select('id','ten_sanpham','ma_sanpham','cong_suat','kich_thuoc','khoet_lo','gia','img_path','category_id','thong_so','giam_gia')->get();
         $category = Category::where('delete','0')->get();
         return view('backend.product-edit',['isActive'=>'product','data'=>$product,'category'=>$category]);
     }
 
-    public function postEdit(ProductRequest $request){
+    public function postEdit(Request $request){
+        $messages = [
+                'ten_sanpham.required' =>'Tên sản phẩm không được để trống',
+                'ma_sanpham.required'  =>'Mã sản phẩm không được để trống',
+                'category_id.required' =>'Danh mục không được để trống',
+                'thong_so.required'    =>'Thông số không được để trống',
+                'gia.required'         =>'Giá tiền không được để trống',
+                'gia.numeric'          =>'Giá tiền phải là số',
+                'giam_gia.numeric'     =>'Phần trăm phải là số'
+
+            ];
+        $this->validate($request, [
+                    'ten_sanpham'=>'required',
+                    'ma_sanpham' =>'required',
+                    'category_id'=>'required',
+                    'thong_so'   =>'required',
+                    'gia'        =>'required|numeric',
+                    'giam_gia'   =>'numeric',
+                    ], $messages);
         $filename='';
         if($request->hasFile('img_path')){
             $filename=$request->file('img_path')->getClientOriginalName();
@@ -63,26 +86,28 @@ class ProductController extends Controller
         }
         if($filename==''){
             $update = Product::where('id',$request->id)->update([
-            'ten_sanpham' => $request->ten_sanpham,
-            'ma_sanpham' => $request->ma_sanpham,
-            'cong_suat' => $request->cong_suat,
-            'kich_thuoc' => $request->kich_thuoc,
-            'khoet_lo' => $request->khoet_lo,
-            'gia' => $request->gia,
-            'thong_so' => $request->thong_so,
-            'category_id' => $request->category_id
+            'ten_sanpham'  => trim($request->ten_sanpham),
+            'ma_sanpham'   => trim($request->ma_sanpham),
+            'cong_suat'    => trim($request->cong_suat),
+            'kich_thuoc'   => trim($request->kich_thuoc),
+            'khoet_lo'     => trim($request->khoet_lo),
+            'gia'          => trim($request->gia),
+            'thong_so'     => trim($request->thong_so),
+            'giam_gia'     => trim($request->giam_gia),
+            'category_id'  => trim($request->category_id)
             ]);    
         }else{
             $update = Product::where('id',$request->id)->update([
-            'ten_sanpham' => $request->ten_sanpham,
-            'ma_sanpham' => $request->ma_sanpham,
-            'cong_suat' => $request->cong_suat,
-            'kich_thuoc' => $request->kich_thuoc,
-            'khoet_lo' => $request->khoet_lo,
-            'gia' => $request->gia,
-            'thong_so' => $request->thong_so,
-            'category_id' => $request->category_id,
-            'img_path' => $filename
+            'ten_sanpham'  => trim($request->ten_sanpham),
+            'ma_sanpham'   => trim($request->ma_sanpham),
+            'cong_suat'    => trim($request->cong_suat),
+            'kich_thuoc'   => trim($request->kich_thuoc),
+            'khoet_lo'     => trim($request->khoet_lo),
+            'gia'          => trim($request->gia),
+            'thong_so'     => trim($request->thong_so),
+            'giam_gia'     => trim($request->giam_gia),
+            'category_id'  => trim($request->category_id),
+            'img_path'     => $filename
             ]);
         }       
         if($update){

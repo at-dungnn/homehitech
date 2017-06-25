@@ -75,3 +75,31 @@ table.NormalTable{
     margin: auto;
 }
 
+.footer-contact ul li {
+    display: block;
+    border: 1px solid #b4b4b4;
+    position: relative;
+    text-align: center;
+    margin-bottom: 38px;
+    padding: 22px 10px 12px;
+    border-radius: 5px;
+    color: #c23234;
+    text-decoration: none;
+}
+.footer-contact ul li i {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #fff;
+    line-height: 35px;
+    text-align: center;
+    color: #0071bc;
+    font-size: 16px;
+    position: absolute;
+    top: -17px;
+    left: 50%;
+    margin-left: -17px;
+}
+.footer-contact ul li a{
+    text-decoration: none;
+}

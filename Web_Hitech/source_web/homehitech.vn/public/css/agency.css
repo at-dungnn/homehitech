@@ -553,8 +553,8 @@ aside.clients img {
   margin: 50px auto;
 }
 section#contact {
-  background-color: #222222;
-  background-image: url('/images/footer_image.jpg');
+  background-color: #fff;
+  /*background-image: url('/images/footer_image.jpg');*/
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -608,6 +608,7 @@ section#contact .text-danger {
   color: #e74c3c;
 }
 footer {
+  background: #eeeeee;
   padding: 25px 0;
   text-align: center;
 }
