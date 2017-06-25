@@ -223,24 +223,26 @@
                 </ul>
             </div>
             <div class="row animated hidden telecom-amination">
-                <<div class="col-md-3 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                @foreach($productLight2 as $value)
+                    <div class="col-md-3 col-sm-6 portfolio-item">
+                        <a href="#{{ $value->id }}" class="portfolio-link" data-toggle="modal">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content">
+                                    <i class="fa fa-plus fa-3x"></i>
+                                </div>
                             </div>
+                            <img src="{{ asset('images/portfolio/'.$value->img_path) }}" class="img-responsive" alt="">
+                        </a>
+                        <div class="portfolio-caption">
+                            <h4>Mã : {{ $value->ma_sanpham }}</h4>
+                            <p class="text-muted">Công suất : {{ $value->cong_suat }}</p>
+                            <p class="text-muted">Kích thước : {{ $value->kick_thuoc }}</p>
+                            <p class="text-muted">Khoét lỗ : {{ $value->khoet_lo }}</p>
+                            <p class="text-muted" style="color: red;">Giá : {{ $value->gia }}</p>
+                            <p class="text-muted" style="color: red;">Giảm giá : 132,000</p>
                         </div>
-                        <img src="{{ asset('images/portfolio/denamtran_4_resize.jpg') }}" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Mã : DBS1-5</h4>
-                        <p class="text-muted">Công suất : 5W</p>
-                        <p class="text-muted">Kích thước : 100x100</p>
-                        <p class="text-muted">Khoét lỗ : 85x85</p>
-                        <p class="text-muted" style="color: red;">Giá : 157,000</p>
-                        <p class="text-muted" style="color: red;">Giảm giá : 132,000</p>
                     </div>
-                </div>
+                @endforeach
             </div>
             <div class="row animated hidden camera-amination" style="margin-right: 3%;">
                 <ul style="list-style: none;margin-bottom: 10%;" class="format-ul-vt">
@@ -256,24 +258,26 @@
                 </ul>
             </div>
             <div class="row animated hidden camera-amination">
-                <div class="col-md-3 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+               @foreach($productLight2 as $value)
+                    <div class="col-md-3 col-sm-6 portfolio-item">
+                        <a href="#{{ $value->id }}" class="portfolio-link" data-toggle="modal">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content">
+                                    <i class="fa fa-plus fa-3x"></i>
+                                </div>
                             </div>
+                            <img src="{{ asset('images/portfolio/'.$value->img_path) }}" class="img-responsive" alt="">
+                        </a>
+                        <div class="portfolio-caption">
+                            <h4>Mã : {{ $value->ma_sanpham }}</h4>
+                            <p class="text-muted">Công suất : {{ $value->cong_suat }}</p>
+                            <p class="text-muted">Kích thước : {{ $value->kick_thuoc }}</p>
+                            <p class="text-muted">Khoét lỗ : {{ $value->khoet_lo }}</p>
+                            <p class="text-muted" style="color: red;">Giá : {{ $value->gia }}</p>
+                            <p class="text-muted" style="color: red;">Giảm giá : 132,000</p>
                         </div>
-                        <img src="{{ asset('images/portfolio/denamtran_4_resize.jpg') }}" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>Mã : DBS1-5</h4>
-                        <p class="text-muted">Công suất : 5W</p>
-                        <p class="text-muted">Kích thước : 100x100</p>
-                        <p class="text-muted">Khoét lỗ : 85x85</p>
-                        <p class="text-muted" style="color: red;">Giá : 157,000</p>
-                        <p class="text-muted" style="color: red;">Giảm giá : 132,000</p>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
         
@@ -451,7 +455,7 @@
                                     <h2>Mã : {{ $value->ma_sanpham }}</h2>
                                     <img src="{{ asset('images/portfolio/'.$value->img_path) }}" class="img-responsive" alt="" style="margin: auto;">
                                     <h2>Thông số chung</h2>
-                                    <p class="item-intro text-muted">{{ $value->thong_so }}</p>
+                                    <p class="item-intro text-muted">{!! $value->thong_so !!}</p>
                                     <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
                                 </div>
                             </div>
@@ -480,7 +484,7 @@
                                     <h2>Mã : {{ $value->ma_sanpham }}</h2>
                                     <img src="{{ asset('images/portfolio/'.$value->img_path) }}" class="img-responsive" alt="" style="margin: auto;">
                                     <h2>Thông số chung</h2>
-                                    <p class="item-intro text-muted">{{ $value->thong_so }}</p>
+                                    <p class="item-intro text-muted">{!! $value->thong_so !!}</p>
                                     <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
                                 </div>
                             </div>

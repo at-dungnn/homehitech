@@ -71,3 +71,7 @@ li.format-li-vt.active {
     color: #fff;
     text-align: center;
 }
+table.NormalTable{
+    margin: auto;
+}
+
