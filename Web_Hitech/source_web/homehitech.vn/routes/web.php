@@ -43,6 +43,9 @@ Route::prefix('admin')->group(function () {
 	Route::get('users/add', 'AccountController@getAdd')->name('admin.users.add');
 	Route::post('users/add', 'AccountController@postAdd');
 	Route::post('users/delete', 'AccountController@postDelete')->name('admin.users.delete');
+
+	Route::get('contact', 'ContactController@Index')->name('admin.contact');
+
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

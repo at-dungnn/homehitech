@@ -103,9 +103,11 @@
                                         <li class="{{$isActive=='category'?'active':''}}">
                                             <a href="{{route('admin.category')}}" class="auto">   <i class="i i-stack icon"> </i> <span class="font-bold">Danh Mục</span> </a>
                                         </li>
-
                                         <li class="{{$isActive=='users'?'active':''}}">
                                             <a href="{{route('admin.users')}}" class="auto"> <i class="fa  fa-user icon"> </i> <span class="font-bold">Tài Khoản</span> </a>
+                                        </li>
+                                        <li class="{{$isActive=='contact'?'active':''}}">
+                                            <a href="{{route('admin.contact')}}" class="auto"> <i class="fa  fa-user icon"> </i> <span class="font-bold">Liên Hệ</span> </a>
                                         </li>
                                     </ul>
                                     
