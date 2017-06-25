@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index','');
+// });
+Route::get('/', 'IndexController@getIndex');
 Auth::routes();
 
 Route::prefix('admin')->group(function () {
