@@ -30,6 +30,7 @@ class ProductRequest extends FormRequest
             'thong_so'   =>'required',
             'gia'        =>'required|numeric',
             'giam_gia'   =>'numeric',
+            'so_luong'   =>'required|numeric',
 
         ];
     }
@@ -44,6 +45,8 @@ class ProductRequest extends FormRequest
             'gia.required'         =>'Giá tiền không được để trống',
             'gia.numeric'          =>'Giá tiền phải là số',
             'giam_gia.numeric'     =>'Phần trăm phải là số'
+            'so_luong.numeric'     =>'Số lượng phải là số',
+            'so_luong.required'    =>'Số lượng không được để trống',
 
         ];
     }

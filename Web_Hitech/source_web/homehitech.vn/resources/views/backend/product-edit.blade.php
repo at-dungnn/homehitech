@@ -54,9 +54,7 @@
                                 <div class="col-sm-4">
                                     <select name="category_id" class="category_id form-control">
                                     <option></option>
-                                    @foreach($category as $key=>$val)
-                                        <option value="{{$val->id}}" @if($data['0']->category_id==$val->id) selected @endif>{{$val->name}}</option>
-                                    @endforeach
+                                    {!!$category!!}
                                     </select>
                                     @if ($errors->has('category_id'))
                                         <div class="help-block">
@@ -215,5 +213,6 @@
 	            reader.readAsDataURL(input.files[0]);
 	        }
 	    }
+        $(".category_id").val("{{$data['0']->category_id}}");
     </script>
 @endsection

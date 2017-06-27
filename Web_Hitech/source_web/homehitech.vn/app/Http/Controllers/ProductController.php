@@ -9,6 +9,7 @@ use App\Http\Requests\ProductRequest;
 use Session,Auth;
 class ProductController extends Controller
 {
+    public $data;
     public function __construct(){
         $this->middleware('auth');
     }
@@ -16,7 +17,8 @@ class ProductController extends Controller
     	return view('backend.product',['isActive'=>'product']);
     }
     public function getAdd(){
-        $category = Category::where('delete','0')->get();
+        $category   = Category::where('delete','0')->get();
+        $category   =   $this->showCategories($category);
     	return view('backend.product-add',['isActive'=>'product','category'=>$category]);
     }
     public function postAdd(ProductRequest $request){
@@ -34,6 +36,7 @@ class ProductController extends Controller
         $product->gia         = trim($request->gia);
         $product->thong_so    = trim($request->thong_so);
         $product->giam_gia    = trim($request->giam_gia);
+        $product->so_luong    = trim($request->so_luong);
         $product->category_id = $request->category_id;
         $product->img_path    = $filename;
         $product->delete      = 0;
@@ -51,12 +54,14 @@ class ProductController extends Controller
                     ->leftJoin('users', function($join) {$join->on('product.created_by','=','users.id');})
                     ->leftJoin('category', function($join) {$join->on('category.id','=','product.category_id');})
                     ->select('product.id as id','product.ten_sanpham as ten_sanpham','product.ma_sanpham as ma_sanpham','product.gia as gia','category.name as category','users.name as created_by','product.created_at as created_at')
+                    ->orderBy('product.id', 'desc') 
                     ->get();
         return response()->json(array('data'=>$product));
     }
     public function getEdit($id){
-        $product = Product::where([['delete','0'],['id',$id]])->select('id','ten_sanpham','ma_sanpham','cong_suat','kich_thuoc','khoet_lo','gia','img_path','category_id','thong_so','giam_gia')->get();
-        $category = Category::where('delete','0')->get();
+        $product    =   Product::where([['delete','0'],['id',$id]])->select('id','ten_sanpham','ma_sanpham','cong_suat','kich_thuoc','khoet_lo','gia','img_path','category_id','thong_so','giam_gia','so_luong')->get();
+        $category   =   Category::where('delete','0')->get();
+        $category   =   $this->showCategories($category);
         return view('backend.product-edit',['isActive'=>'product','data'=>$product,'category'=>$category]);
     }
 
@@ -68,7 +73,9 @@ class ProductController extends Controller
                 'thong_so.required'    =>'Thông số không được để trống',
                 'gia.required'         =>'Giá tiền không được để trống',
                 'gia.numeric'          =>'Giá tiền phải là số',
-                'giam_gia.numeric'     =>'Phần trăm phải là số'
+                'giam_gia.numeric'     =>'Phần trăm phải là số',
+                'so_luong.numeric'     =>'Số lượng phải là số',
+                'so_luong.required'    =>'Số lượng không được để trống',
 
             ];
         $this->validate($request, [
@@ -78,6 +85,7 @@ class ProductController extends Controller
                     'thong_so'   =>'required',
                     'gia'        =>'required|numeric',
                     'giam_gia'   =>'numeric',
+                    'so_luong'   =>'required|numeric',
                     ], $messages);
         $filename='';
         if($request->hasFile('img_path')){
@@ -94,6 +102,7 @@ class ProductController extends Controller
             'gia'          => trim($request->gia),
             'thong_so'     => trim($request->thong_so),
             'giam_gia'     => trim($request->giam_gia),
+            'so_luong'     => trim($request->so_luong),
             'category_id'  => trim($request->category_id)
             ]);    
         }else{
@@ -106,6 +115,7 @@ class ProductController extends Controller
             'gia'          => trim($request->gia),
             'thong_so'     => trim($request->thong_so),
             'giam_gia'     => trim($request->giam_gia),
+            'so_luong'     => trim($request->so_luong),
             'category_id'  => trim($request->category_id),
             'img_path'     => $filename
             ]);
@@ -117,6 +127,7 @@ class ProductController extends Controller
             return redirect()->back()->withErrors();
         }       
     }
+
     public function postDelete(Request $request){
         $update = Product::where('id',$request->id)->update(['delete'=>1]);
         if($update){
@@ -124,6 +135,21 @@ class ProductController extends Controller
         }else{
             return response()->json(array('status'=>'ng'));
         }
+    }
+
+    public function showCategories($categories, $parent_id = 0, $char = ''){
+        foreach ($categories as $key => $item){
+            // Nếu là chuyên mục con thì hiển thị
+            if($item['parent_id'] == $parent_id){
+                $this->data .= '<option value="'.$item['id'].'">'.$char . $item['name'].'</option>';
+                // Xóa chuyên mục đã lặp
+                unset($categories[$key]);                
+                // Tiếp tục đệ quy để tìm chuyên mục con của chuyên mục đang lặp
+                $this->showCategories($categories, $item['id'], $char.'|---');
+            }
+            
+        }
+        return $this->data;
     }
 
 }

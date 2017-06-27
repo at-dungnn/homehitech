@@ -48,7 +48,7 @@ $('#product').dataTable( {
       "aoColumns": [
         { "data": "id",
         render : function(data){
-            return "<a href='product/edit/"+data+"' title='Edit'>"+data+"</a>";
+            return "<a href='product/edit/"+data+"' title='Edit'><i class='fa  fa-pencil'></i></a>";
         }},
         { "data": "ten_sanpham"},
         { "data": "ma_sanpham" },

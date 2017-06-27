@@ -11,6 +11,23 @@
                 	{{ csrf_field() }}
                         <div class="form-group">
                             <label class="col-sm-2 control-label">
+                                Danh mục cha
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-sm-8">
+                                <select name="parent_id" id="parent_id" class="parent_id form-control" required="required">
+                                    {!!$categoryHtml!!}
+                                </select>
+                                
+                                @if ($errors->has('parent_id'))
+                                    <div class="help-block">
+                                        <strong>{{ $errors->first('parent_id') }}</strong>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
                             	Tên danh mục
                             	<span class="required">*</span>
                             </label>

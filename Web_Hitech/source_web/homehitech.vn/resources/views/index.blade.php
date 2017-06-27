@@ -306,7 +306,7 @@
                             <p class="text-muted">Công suất : {{ $value->cong_suat }}</p>
                             <p class="text-muted">Kích thước : {{ $value->kick_thuoc }}</p>
                             <p class="text-muted">Khoét lỗ : {{ $value->khoet_lo }}</p>
-                            @if($value->giam_gia!='')
+                            @if($value->giam_gia !='' )
                             <strike>
                             @endif
                             <p class="text-muted" style="color: red;">Giá : {{ number_format($value->gia) }} đ</p>

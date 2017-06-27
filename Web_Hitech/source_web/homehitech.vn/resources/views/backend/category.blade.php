@@ -21,9 +21,8 @@
                     <thead>
                         <tr>
                             <th width="10%">ID</th>
-                            <th width="25%">Tên danh mục</th>
-                            <th width="25%">Ngày tạo</th>
-                            <th width="15%">Delete</th>
+                            <th width="30%">Tên danh mục</th>
+                            <th width="10%">Xóa</th>
                         </tr>
                     </thead>
                     <tbody> </tbody>
@@ -37,24 +36,19 @@
 <script src="{{asset('backend/js/datatables/jquery.dataTables.min.js')}}"></script>
 <script type="text/javascript">
 $('#category').dataTable( {
-    "ajax": "{{route('admin.category.list')}}",
+      "ajax": "{{route('admin.category.list')}}",
       "bProcessing": true,
       "sDom": "<'row'<'col-sm-6'l><'col-sm-6'f>r>t<'row'<'col-sm-6'i><'col-sm-6'p>>",
-      // "sPaginationType": "full_numbers",
       "aoColumns": [
         { "data": "id",
         render:function(data){
-            return "<a href='category/edit/"+data+"' title='Edit'>"+data+"</a>";
+            return "<a href='category/edit/"+data+"' title='Edit'><i class='fa  fa-pencil'></i></a>";
         }},
         { "data": "name"},
-        { "data": "created_at",
-        render : function(data){
-            return data.substr(0, 10);
-        }},
         { "data": "id",
         render:function(data){
             return "<span class='delete-category' data-id='"+data+"' title='Delete'><i class='glyphicon glyphicon-remove'></i></span>";
-        }},
+        }}
       ]
 });
 $(document).on("click",".delete-category",function(){

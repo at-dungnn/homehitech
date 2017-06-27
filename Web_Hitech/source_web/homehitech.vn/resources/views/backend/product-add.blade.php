@@ -51,9 +51,7 @@
                                 <div class="col-sm-4">
                                     <select name="category_id" class="category_id form-control">
                                     <option></option>
-                                    @foreach($category as $key=>$val)
-                                        <option value="{{$val->id}}">{{$val->name}}</option>
-                                    @endforeach
+                                    {!!$category!!}
                                     </select>
                                     @if ($errors->has('category_id'))
                                         <div class="help-block">

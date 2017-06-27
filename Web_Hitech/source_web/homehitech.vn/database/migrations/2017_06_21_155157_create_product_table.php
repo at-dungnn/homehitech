@@ -24,6 +24,7 @@ class CreateProductTable extends Migration
             $table->string('giam_gia',20)->nullable();
             $table->string('img_path')->nullable();
             $table->text('thong_so');
+            $table->string('so_luong',50)->default(0);
             $table->string('category_id',50);
             $table->boolean('delete')->default(0);
             $table->string('created_by',50);
