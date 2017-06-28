@@ -110,7 +110,7 @@
                                             <a href="{{route('admin.category')}}" class="auto">   <i class="i i-stack icon"> </i> <span class="font-bold">Danh Mục</span> </a>
                                         </li>
                                         <li class="{{$isActive=='order'?'active':''}}">
-                                            <a href="{{route('admin.order')}}" class="auto">   <i class="fa  fa-shopping-cart icon"> </i> <span class="font-bold">Đặt hàng</span> </a>
+                                            <a href="{{route('admin.order')}}" class="auto">   <i class="fa  fa-shopping-cart icon"> </i> <span class="font-bold">Đặt Hàng</span> </a>
                                         </li>
                                         <li class="{{$isActive=='users'?'active':''}}">
                                             <a href="#" class="auto"> <i class="fa  fa-user icon"> </i> <span class="font-bold">Tài Khoản</span> </a>
