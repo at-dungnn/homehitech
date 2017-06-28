@@ -97,11 +97,20 @@
                                         <li class="{{$isActive=='overview'?'active':''}}">
                                             <a href="{{route('admin')}}" class="auto"> <i class="i i-statistics icon"> </i> <span class="font-bold">Tổng Quát</span> </a>
                                         </li>
+                                        <li class="{{$isActive=='banner'?'active':''}}">
+                                            <a href="{{route('admin.banner')}}" class="auto">   <i class="fa  fa-sliders icon"> </i> <span class="font-bold">Banner</span> </a>
+                                        </li> 
+                                        <li class="{{$isActive=='news'?'active':''}}">
+                                            <a href="{{route('admin.news')}}" class="auto">   <i class="fa fa-file-text icon"> </i> <span class="font-bold">Tin Tức</span> </a>
+                                        </li>  
                                         <li class="{{$isActive=='product'?'active':''}}">
                                             <a href="{{route('admin.product')}}" class="auto">   <i class="fa fa-bars icon"> </i> <span class="font-bold">Sản Phẩm</span> </a>
                                         </li>  
                                         <li class="{{$isActive=='category'?'active':''}}">
                                             <a href="{{route('admin.category')}}" class="auto">   <i class="i i-stack icon"> </i> <span class="font-bold">Danh Mục</span> </a>
+                                        </li>
+                                        <li class="{{$isActive=='order'?'active':''}}">
+                                            <a href="{{route('admin.order')}}" class="auto">   <i class="fa  fa-shopping-cart icon"> </i> <span class="font-bold">Đặt hàng</span> </a>
                                         </li>
                                         <li class="{{$isActive=='users'?'active':''}}">
                                             <a href="#" class="auto"> <i class="fa  fa-user icon"> </i> <span class="font-bold">Tài Khoản</span> </a>
@@ -115,6 +124,9 @@
                                                 </li>
                                                 @endif
                                             </ul>
+                                        </li>                                        
+                                        <li class="{{$isActive=='cskh'?'active':''}}">
+                                            <a href="{{route('admin.cskh')}}" class="auto"> <i class="glyphicon  glyphicon-headphones icon"> </i> <span class="font-bold">Nhân Viên CSKH</span> </a>
                                         </li>
                                         <li class="{{$isActive=='contact'?'active':''}}">
                                             <a href="{{route('admin.contact')}}" class="auto"> <i class="glyphicon glyphicon-phone-alt icon"> </i> <span class="font-bold">Liên Hệ</span> </a>

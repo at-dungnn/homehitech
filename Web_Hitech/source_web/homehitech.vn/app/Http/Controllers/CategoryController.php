@@ -45,9 +45,9 @@ class CategoryController extends Controller
         $category       =   Category::where('delete','0')
                                     ->select('id','name','parent_id')
                                     ->get();
-        $categoryHtml   =   $this->showCategories2($category);
+        // $categoryHtml   =   $this->showCategories2($category);
 
-        return response()->json(array('data'=>$categoryHtml));
+        return response()->json(array('data'=>$category));
     }
 
     public function postDelete(Request $request){

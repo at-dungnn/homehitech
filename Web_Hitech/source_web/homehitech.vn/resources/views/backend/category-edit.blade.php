@@ -17,6 +17,7 @@
                             </label>
                             <div class="col-sm-8">
                                 <select name="parent_id" id="parent_id" class="parent_id form-control" required="required">
+                                    <option value="0">Cha</option>
                                     {!!$categoryHtml!!}
                                 </select>
                                 

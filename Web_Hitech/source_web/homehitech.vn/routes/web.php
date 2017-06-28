@@ -21,6 +21,10 @@ Route::prefix('admin')->group(function () {
 	Route::get('login', 'AdminLoginController@Index')->name('admin.login');
 	Route::get('reset-password', 'AdminLoginController@getReset')->name('admin.reset');
 	Route::get('/', 'DashboardControler@Index')->name('admin');	
+
+	Route::get('banner','NewsController@Index')->name('admin.banner');
+
+	Route::get('news','NewsController@Index')->name('admin.news');
 	Route::get('product', 'ProductController@Index')->name('admin.product');
 	Route::get('product/list', 'ProductController@getList')->name('admin.product.list');
 	Route::get('product/add', 'ProductController@getAdd')->name('admin.product.add');
@@ -37,6 +41,8 @@ Route::prefix('admin')->group(function () {
 	Route::get('category/list', 'CategoryController@getList')->name('admin.category.list');
 	Route::post('category/delete', 'CategoryController@postDelete')->name('admin.category.delete');
 
+	Route::get('order','OrderController@Index')->name('admin.order');
+
 	Route::get('users', 'AccountController@Index')->name('admin.users');
 	Route::get('users/list', 'AccountController@getList')->name('admin.users.list');
 	Route::get('users/list-all', 'AccountController@getListAll')->name('admin.users.list-all');
@@ -47,6 +53,9 @@ Route::prefix('admin')->group(function () {
 
 	Route::get('contact', 'ContactController@Index')->name('admin.contact');
 	Route::post('contact', 'ContactController@postUpdate')->name('admin.update');
+
+	Route::get('cskh', 'CskhController@Index')->name('admin.cskh');
+	Route::get('cskh/add', 'CskhController@getAdd')->name('admin.cskh.add');
 
 });
 
