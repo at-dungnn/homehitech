@@ -13,7 +13,7 @@
                         <div class="panel b-a">
                             <div class="row m-n">
                                 <div class="col-md-6 b-b b-r">
-                                    <a href="#" class="block padder-v hover"> <span class="i-s i-s-2x pull-left m-r-sm"> <i class="i i-hexagon2 i-s-base text-danger hover-rotate"></i> <i class="i i-plus2 i-1x text-white"></i> </span> <span class="clear"> <span class="h3 block m-t-xs text-danger">{{$product or ''}}</span> <small class="text-muted text-u-c">Sản phẩm</small> </span>
+                                    <a href="#" class="block padder-v hover"> <span class="i-s i-s-2x pull-left m-r-sm"> <i class="i i-hexagon2 i-s-base text-danger hover-rotate"></i> <i class="fa fa-rocket text-white"></i> </span> <span class="clear"> <span class="h3 block m-t-xs text-danger">{{$product or ''}}</span> <small class="text-muted text-u-c">Sản phẩm</small> </span>
                                     </a>
                                 </div>
                                 <div class="col-md-6 b-b">
