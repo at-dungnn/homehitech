@@ -113,7 +113,7 @@
                                             <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" /> </div>
                                         <div class="btn-group"> <a class="btn btn-default btn-sm" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a> <a class="btn btn-default btn-sm" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a> </div>
                                     </div>
-                                    <div id="editor" class="editor_content form-control" style="overflow:scroll;height:350px;max-height:300px;width: 635px;max-width: 635px;">{{$data['0']->content or old('content')}}</div>
+                                    <div id="editor" class="editor_content form-control" style="overflow:scroll;height:400px;max-height:400px;width: 635px;max-width: 635px;">{!!$data['0']->content or old('content')!!}</div>
                                     @if ($errors->has('content'))
                                         <div class="help-block">
                                             <strong>{{ $errors->first('content') }}</strong>
