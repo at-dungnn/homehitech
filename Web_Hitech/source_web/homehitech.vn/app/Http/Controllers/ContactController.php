@@ -8,9 +8,13 @@ use App\Http\Requests\ContactRequest;
 use Session;
 class ContactController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+    
     public function Index(){
     	$contact= Contact::find('1');
-    	return view('backend.contact',['isActive'=>'contact','contact'=>$contact]);
+    	return view('backend.contact.contact',['isActive'=>'contact','contact'=>$contact]);
     }
     public function postUpdate(ContactRequest $request){
     	$contact = Contact::where('id',1)->update([

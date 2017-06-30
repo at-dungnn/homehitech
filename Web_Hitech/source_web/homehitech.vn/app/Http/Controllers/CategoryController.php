@@ -17,19 +17,20 @@ class CategoryController extends Controller
 
     public function Index(){
         $category=Category::where('delete','0')->get();
-    	return view('backend.category',['isActive'=>'category','category'=>$category]);
+    	return view('backend.category.category',['isActive'=>'category','category'=>$category]);
     }
     public function getAdd(){
         $category       =   Category::where('delete','0')
                                     ->select('id','name','parent_id')
                                     ->get();
         $categoryHtml    =   $this->showCategories($category);
-    	return view('backend.category-add',['isActive'=>'category','categoryHtml'=>$categoryHtml]);
+    	return view('backend.category.category-add',['isActive'=>'category','categoryHtml'=>$categoryHtml]);
     }
 
     public function postAdd(CategoryRequest $request){
         $category               = new Category;
         $category->name         = $request->ten_danhmuc;
+        $category->slug         = str_slug($request->ten_danhmuc,"-");
         $category->parent_id    = $request->parent_id;
         $category->delete       = 0;
         $save = $category->save();
@@ -67,7 +68,7 @@ class CategoryController extends Controller
                                     ->select('id','name','parent_id')
                                     ->get();
         $categoryHtml   =   $this->showCategories($categoryAll);
-        return view('backend.category-edit',['isActive'    => 'category'
+        return view('backend.category.category-edit',['isActive'    => 'category'
                                             ,'data'        => $category
                                             ,'categoryAll' => $categoryAll
                                             ,'categoryHtml'=> $categoryHtml]);
@@ -76,6 +77,7 @@ class CategoryController extends Controller
     public function postEdit(CategoryRequest $request){
         $update = Category::where('id',$request->id)->update([
                                     'name'      => $request->ten_danhmuc,
+                                    'slug'      => str_slug($request->ten_danhmuc,"-"),
                                     'parent_id' => $request->parent_id
                                     ]);    
         

@@ -7,5 +7,4 @@ use Illuminate\Database\Eloquent\Model;
 class Cskh extends Model
 {
     public $table='cskh';
-    public $timestamps = false;
 }

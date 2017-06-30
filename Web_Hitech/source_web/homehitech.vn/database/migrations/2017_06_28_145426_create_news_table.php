@@ -17,9 +17,11 @@ class CreateNewsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('slug');
+            $table->text('intro');
             $table->text('content');
-            $table->string('tag');
+            $table->string('img_path');
             $table->string('category_id',20);
+            $table->string('created_by',20);
             $table->timestamps();
         });
     }

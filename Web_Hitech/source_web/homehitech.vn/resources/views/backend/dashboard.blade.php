@@ -25,9 +25,17 @@
                                     </a>
                                 </div>
                                 <div class="col-md-6 b-b">
-                                    <a href="#" class="block padder-v hover"> <span class="i-s i-s-2x pull-left m-r-sm"> <i class="i i-hexagon2 i-s-base text-primary hover-rotate"></i> <i class="i i-alarm i-sm text-white"></i> </span> <span class="clear"> <span class="h3 block m-t-xs text-primary">0</span> <small class="text-muted text-u-c">Tin tức</small> </span>
+                                    <a href="#" class="block padder-v hover"> <span class="i-s i-s-2x pull-left m-r-sm"> <i class="i i-hexagon2 i-s-base text-primary hover-rotate"></i> <i class="fa fa-file-text text-white"></i> </span> <span class="clear"> <span class="h3 block m-t-xs text-primary">{{$news  or ''}}</span> <small class="text-muted text-u-c">Tin tức</small> </span>
                                     </a>
                                 </div> 
+                                <div class="col-md-6 b-b b-r">
+                                    <a href="#" class="block padder-v hover"> <span class="i-s i-s-2x pull-left m-r-sm"> <i class="i i-hexagon2 i-s-base text-primary hover-rotate"></i> <i class="fa fa-user text-white"></i> </span> <span class="clear"> <span class="h3 block m-t-xs text-primary">{{$cskh  or ''}}</span> <small class="text-muted text-u-c">Nhân viên CSKH</small> </span>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 b-b">
+                                    <a href="#" class="block padder-v hover"> <span class="i-s i-s-2x pull-left m-r-sm"> <i class="i i-hexagon2 i-s-base text-primary hover-rotate"></i> <i class="fa fa-shopping-cart text-white"></i> </span> <span class="clear"> <span class="h3 block m-t-xs text-primary">{{$order  or ''}}</span> <small class="text-muted text-u-c">Đơn đặt hàng</small> </span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

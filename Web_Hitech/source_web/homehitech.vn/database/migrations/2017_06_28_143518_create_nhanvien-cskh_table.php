@@ -18,8 +18,10 @@ class CreateNhanvienCskhTable extends Migration
             $table->string('name');
             $table->string('phone',20);
             $table->string('email',200);
-            $table->string('skype',200);
-            $table->string('facebook',200);
+            $table->string('skype',200)->nullable();
+            $table->string('facebook',200)->nullable();
+            $table->string('avatar');
+            $table->timestamps();
         });
     }
 

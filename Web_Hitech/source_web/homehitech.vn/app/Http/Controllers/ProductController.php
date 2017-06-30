@@ -14,21 +14,23 @@ class ProductController extends Controller
         $this->middleware('auth');
     }
     public function Index(){        
-    	return view('backend.product',['isActive'=>'product']);
+    	return view('backend.product.product',['isActive'=>'product']);
     }
     public function getAdd(){
         $category   = Category::where('delete','0')->get();
         $category   =   $this->showCategories($category);
-    	return view('backend.product-add',['isActive'=>'product','category'=>$category]);
+    	return view('backend.product.product-add',['isActive'=>'product','category'=>$category]);
     }
     public function postAdd(ProductRequest $request){
         $filename='';
         if($request->hasFile('img_path')){
-            $filename=$request->file('img_path')->getClientOriginalName();
-            $request->file('img_path')->move('upload',$filename);
+            $filename = time()."-".$request->file('img_path')->getClientOriginalName();
+            $request->file('img_path')->move('upload/product',$filename);
         }
+
         $product = new Product;
         $product->ten_sanpham = trim($request->ten_sanpham);
+        $product->slug        = str_slug($request->ten_sanpham);
         $product->ma_sanpham  = trim($request->ma_sanpham);
         $product->cong_suat   = trim($request->cong_suat);
         $product->kich_thuoc  = trim($request->kich_thuoc);
@@ -41,7 +43,7 @@ class ProductController extends Controller
         $product->img_path    = $filename;
         $product->delete      = 0;
         $product->created_by  = Auth::user()->id;
-        $save = $product->save();
+        $save                 = $product->save();
         if($save){
             Session::flash('status', 'Thêm sản phẩm mới thành công!');
             return redirect()->route('admin.product');
@@ -62,7 +64,7 @@ class ProductController extends Controller
         $product    =   Product::where([['delete','0'],['id',$id]])->select('id','ten_sanpham','ma_sanpham','cong_suat','kich_thuoc','khoet_lo','gia','img_path','category_id','thong_so','giam_gia','so_luong')->get();
         $category   =   Category::where('delete','0')->get();
         $category   =   $this->showCategories($category);
-        return view('backend.product-edit',['isActive'=>'product','data'=>$product,'category'=>$category]);
+        return view('backend.product.product-edit',['isActive'=>'product','data'=>$product,'category'=>$category]);
     }
 
     public function postEdit(Request $request){
@@ -90,11 +92,12 @@ class ProductController extends Controller
         $filename='';
         if($request->hasFile('img_path')){
             $filename=$request->file('img_path')->getClientOriginalName();
-            $request->file('img_path')->move('upload',$filename);
+            $request->file('img_path')->move('upload/product',$filename);
         }
         if($filename==''){
             $update = Product::where('id',$request->id)->update([
             'ten_sanpham'  => trim($request->ten_sanpham),
+            'slug'         => str_slug(trim($request->ten_sanpham),"-"),
             'ma_sanpham'   => trim($request->ma_sanpham),
             'cong_suat'    => trim($request->cong_suat),
             'kich_thuoc'   => trim($request->kich_thuoc),
@@ -108,6 +111,7 @@ class ProductController extends Controller
         }else{
             $update = Product::where('id',$request->id)->update([
             'ten_sanpham'  => trim($request->ten_sanpham),
+            'slug'         => str_slug(trim($request->ten_sanpham),"-"),
             'ma_sanpham'   => trim($request->ma_sanpham),
             'cong_suat'    => trim($request->cong_suat),
             'kich_thuoc'   => trim($request->kich_thuoc),

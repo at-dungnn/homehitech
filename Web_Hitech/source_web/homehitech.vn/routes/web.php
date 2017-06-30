@@ -22,9 +22,23 @@ Route::prefix('admin')->group(function () {
 	Route::get('reset-password', 'AdminLoginController@getReset')->name('admin.reset');
 	Route::get('/', 'DashboardControler@Index')->name('admin');	
 
-	Route::get('banner','NewsController@Index')->name('admin.banner');
+	Route::get('banner','BannerController@Index')->name('admin.banner');
+	Route::get('banner/add','BannerController@getAdd')->name('admin.banner.add');
+	Route::post('banner/add','BannerController@postAdd');
+	Route::get('banner/edit/{id}', 'BannerController@getEdit')->name('admin.banner.edit');
+	Route::post('banner/edit/{id}', 'BannerController@postEdit')->name('admin.banner.postedit');
+	Route::get('banner/list','BannerController@getList')->name('admin.banner.list');
+	Route::post('banner/delete', 'BannerController@postDelete')->name('admin.banner.delete');
 
 	Route::get('news','NewsController@Index')->name('admin.news');
+	Route::get('news/list', 'NewsController@getList')->name('admin.news.list');
+	Route::get('news/add', 'NewsController@getAdd')->name('admin.news.add');
+	Route::post('news/add', 'NewsController@postAdd');
+	Route::get('news/edit/{id}', 'NewsController@getEdit')->name('admin.news.edit');
+	Route::post('news/edit/{id}', 'NewsController@postEdit');
+	Route::post('news/delete', 'NewsController@postDelete')->name('admin.news.delete');
+
+
 	Route::get('product', 'ProductController@Index')->name('admin.product');
 	Route::get('product/list', 'ProductController@getList')->name('admin.product.list');
 	Route::get('product/add', 'ProductController@getAdd')->name('admin.product.add');
@@ -56,6 +70,11 @@ Route::prefix('admin')->group(function () {
 
 	Route::get('cskh', 'CskhController@Index')->name('admin.cskh');
 	Route::get('cskh/add', 'CskhController@getAdd')->name('admin.cskh.add');
+	Route::post('cskh/add', 'CskhController@postAdd');
+	Route::get('cskh/edit/{id}', 'CskhController@getEdit')->name('admin.cskh.edit');
+	Route::post('cskh/edit/{id}', 'CskhController@postEdit');
+	Route::get('cskh/list', 'CskhController@getList')->name('admin.cskh.list');
+	Route::post('cskh/delete', 'CskhController@postDelete')->name('admin.cskh.delete');
 
 });
 

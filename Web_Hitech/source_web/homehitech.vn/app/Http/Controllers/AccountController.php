@@ -12,7 +12,7 @@ class AccountController extends Controller
         $this->middleware('auth');
     }
     public function Index(){
-    	return view('backend.users',['isActive'=>'users','isActiveSub'=>'update']);
+    	return view('backend.user.users',['isActive'=>'users','isActiveSub'=>'update']);
     }
     public function postUpdate(UserRequest $request){
 
@@ -38,7 +38,7 @@ class AccountController extends Controller
     	}
     }
     public function getAdd(){
-        return view('backend.users-add',['isActive'=>'users']);
+        return view('backend.user.users-add',['isActive'=>'users']);
     }
     public function postAdd(Request $request){        
         $messages= [
@@ -87,7 +87,7 @@ class AccountController extends Controller
     }
     public function getListAll(){
         if(Auth::user()->id=='1'){
-            return view('backend.user-list',['isActive'=>'users','isActiveSub'=>'list']);   
+            return view('backend.user.user-list',['isActive'=>'users','isActiveSub'=>'list']);   
         }else{
             return redirect()->back();
         }

@@ -11,6 +11,6 @@ class OrderController extends Controller
         $this->middleware('auth');
     }
 	public function Index() {
-		return view('backend.order',['isActive'=>'order']);
+		return view('backend.order.order',['isActive'=>'order']);
 	}
 }
