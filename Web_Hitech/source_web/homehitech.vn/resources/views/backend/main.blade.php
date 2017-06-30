@@ -170,6 +170,7 @@
     <script src="{{asset('backend/js/app.plugin.js')}}"></script>
     <script src="{{asset('backend/js/bootstrap-notify-master/bootstrap-notify.min.js')}}"></script>
     <script type="text/javascript">
+    $( document ).ready(function() {
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -220,6 +221,7 @@
                 '</div>' 
             });
         }
+    });
     </script>
     @yield('script')
 
