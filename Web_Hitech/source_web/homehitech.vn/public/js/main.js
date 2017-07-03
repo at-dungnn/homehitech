@@ -58,7 +58,11 @@ function search(id) {
                 id      : id
             },
             success: function(res) {
-                console.log(res);
+                // console.log(res.product[0].category_id);
+                $.each(res.product,function(key, value ){
+				     // console.log(value['id']);
+				     
+				});
             }
         });
         
