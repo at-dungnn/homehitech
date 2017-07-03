@@ -1,4 +1,3 @@
-@extends('layouts.master')
 @section('slider')
     <section id="slider"><!--slider-->
 		<div class="container">

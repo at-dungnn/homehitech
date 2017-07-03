@@ -52,7 +52,7 @@ a#scrollUp {
   bottom: 0px;
   right: 10px;
   padding: 5px 10px;
-  background: #FE980F;
+  background: #90bfec;
   color: #FFF;
   -webkit-animation: bounce 2s ease infinite;
   animation: bounce 2s ease infinite;
@@ -249,7 +249,7 @@ a#scrollUp i{
 
 .mainmenu ul li a:hover, .mainmenu ul li a.active,  .shop-menu ul li a.active{
 	background:none;
-	color:#fdb45e;
+	color:#e90000;
 }
 
 .search_box input {
@@ -367,7 +367,7 @@ ul.sub-menu {
 }
 
 .companyinfo h2  span{
-  color:#FE980F;
+  color:#ea0808;
 }
 
 .companyinfo p {
@@ -603,7 +603,7 @@ ul.sub-menu {
 }
 
 .item h1 span {
-	color:#FE980F;
+	color:#ea0808;
 }
 
 .item h2 {
@@ -660,7 +660,7 @@ ul.sub-menu {
   padding-top: 15px;
 }
 .left-sidebar h2, .brands_products h2 {
-  color: #FE980F;
+  color: #ea0808;
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   font-weight: 700;
@@ -835,7 +835,7 @@ h2.title:before{
 
 
 h2.title {
-  color: #FE980F;
+  color: #ea0808;
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   font-weight: 700;
@@ -862,7 +862,7 @@ h2.title {
 }
 
 .productinfo h2{
-	color: #FE980F;
+	color: #90bfec;
 	font-family: 'Roboto', sans-serif;
 	font-size: 24px;
 	font-weight: 700;
@@ -891,7 +891,7 @@ h2.title {
 }
 
 .product-overlay {
-  background:#FE980F;
+  background:#90bfec;
   top: 0;
   display: none;
   height: 0;
@@ -920,7 +920,7 @@ h2.title {
   background:#fff;
   border: 0 none;
   border-radius: 0;
-  color: #FE980F;
+  color: #90bfec;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
   margin-bottom: 25px;
@@ -928,7 +928,7 @@ h2.title {
 
 .product-overlay .add-to-cart:hover {
   background:#fff;
-  color: #FE980F;
+  color: #90bfec;
 }
 
 
@@ -950,9 +950,8 @@ h2.title {
   font-size: 15px;
   margin-bottom: 25px;
 }
-
 .add-to-cart:hover {
-  background: #FE980F;
+  background: #90bfec;
   border: 0 none;
   border-radius: 0;
   color: #FFFFFF;
@@ -967,7 +966,7 @@ h2.title {
 }
 
 .add-to-cart:hover {
-  background: #FE980F;
+  background: #90bfec;
   color: #FFFFFF;
 }
 
@@ -989,7 +988,7 @@ h2.title {
 
 .choose ul li a:hover{
 	background:none;
-	color:#FE980F;
+	color: #ea0808;
 }
 
 .category-tab {

@@ -27,4 +27,66 @@ $(document).ready(function(){
 	        zIndex: 2147483647 // Z-Index for the overlay
 		});
 	});
+	$(document).on('click','.data_product',function(){
+        try {
+        		var id = $(this).attr('data-id');
+                search(id);
+        } catch (e) {
+            alert('icons-list li a:' + e.message);
+        }
+    });
+
 });
+
+
+
+
+/**
+ * 
+ *
+ * @author      :   
+ * @param       :
+ * @return      :   null
+ * @access      :   public
+ * @see         :   init
+ */
+function search(id) {
+    try {
+        //
+        $.ajax({
+            type        :   'POST',
+            url         :   '/search-product',
+            dataType    :   'json',
+            data        :   {
+                id      : id
+            },
+            success: function(res) {
+                console.log(res);
+            }
+        });
+
+    } catch (e) {
+         alert('search' + e.message);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

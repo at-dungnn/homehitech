@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'IndexController@getIndex');
+Route::get('/blog', 'BlogController@getIndex');
+Route::post('/search-product', 'IndexController@postSearch');
 
 //Cart
 Route::get('cart','Home\CartController@getAddCart')->name('home.cart.add');
