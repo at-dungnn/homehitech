@@ -68,8 +68,8 @@
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href='/' class="active"><i class="fa fa-home" aria-hidden="true"></i>Trang chủ</a></li>
 								<li><a href="/blog">Tin tức</a></li> 
-								<li><a href="contact-us.html">Liên Hệ</a></li>
-								<li><a href=""><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+								<li><a href="/lienhe-homepage">Liên Hệ</a></li>
+								<li><a href="/cart-homepage"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
 							</ul>
 						</div>
 					</div>
@@ -80,6 +80,9 @@
 
 	@yield('main-content')
 	@yield('blog-content')
+	@yield('cart-content')
+	@yield('lienhe-content')
+	
 	
 	<footer id="footer"><!--Footer-->
 		<div class="footer-top">
@@ -180,33 +183,6 @@
 			</div>
 		</div>
 	</footer><!--/Footer-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<!-- @yield('slider')
-	@yield('product')
-	@yield('footer') -->
 	
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>

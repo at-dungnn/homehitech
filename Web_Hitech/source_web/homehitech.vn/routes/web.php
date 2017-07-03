@@ -11,9 +11,17 @@
 |
 */
 
+//Home Page
 Route::get('/', 'IndexController@getIndex');
-Route::get('/blog', 'BlogController@getIndex');
 Route::post('/search-product', 'IndexController@postSearch');
+
+//Blog Page
+Route::get('/blog', 'BlogController@getIndex');
+//Cart Home Page
+Route::get('/cart-homepage', 'CartController@getIndex');
+//Lien He Home Page
+Route::get('/lienhe-homepage', 'LienHeController@getIndex');
+
 
 //Cart
 Route::get('cart','Home\CartController@getAddCart')->name('home.cart.add');

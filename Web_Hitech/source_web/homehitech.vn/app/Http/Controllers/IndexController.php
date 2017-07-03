@@ -18,7 +18,4 @@ class IndexController extends Controller
     	$product	=	Product::where([['category_id',$request->id],['delete',0]])->get();
     	return response()->json(array('product'=>$product));
     }
-
-
-
 }

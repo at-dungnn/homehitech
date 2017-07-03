@@ -38,9 +38,6 @@ $(document).ready(function(){
 
 });
 
-
-
-
 /**
  * 
  *
@@ -64,7 +61,7 @@ function search(id) {
                 console.log(res);
             }
         });
-
+        
     } catch (e) {
          alert('search' + e.message);
     }
