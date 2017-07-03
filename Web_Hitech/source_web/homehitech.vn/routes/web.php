@@ -17,6 +17,7 @@ Route::post('/search-product', 'IndexController@postSearch');
 
 //Blog Page
 Route::get('/blog', 'BlogController@getIndex');
+Route::get('/blog/detail/{slug}', 'BlogController@showBlog');
 //Cart Home Page
 Route::get('/cart-homepage', 'CartController@getIndex');
 //Lien He Home Page

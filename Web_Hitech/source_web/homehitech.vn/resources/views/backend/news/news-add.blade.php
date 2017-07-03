@@ -20,7 +20,7 @@
                                 	Tiêu đề
                                 	<span class="required">*</span>
                                 </label>
-                                <div class="col-sm-4">
+                                <div class="col-sm-8">
                                     <input type="text" name="title" class="title form-control" maxlength="255" value="{{old('title')}}"> 
                                     @if ($errors->has('title'))
                                         <div class="help-block">
@@ -54,7 +54,7 @@
                                     <span class="required">*</span>
                                 </label>
 
-                                <div class="col-sm-4">
+                                <div class="col-sm-8">
                                     <textarea name="intro" id="intro" class="intro form-control" cols="30" rows="10"></textarea>
                                 </div>
                             </div>

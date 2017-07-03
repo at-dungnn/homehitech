@@ -117,7 +117,7 @@ class NewsController extends Controller
         if($filename==''){
         	$update = News::where('id',$request->id)->update([
         			'title' 		=> trim($request->title),
-        			'slug'  		=> str_slug(trim($request->slug)),
+        			'slug'  		=> str_slug(trim($request->title)),
         			'intro' 		=> trim($request->intro),
         			'content' 		=> trim($request->content),
         			'category_id' 	=> $request->category_id
@@ -125,7 +125,7 @@ class NewsController extends Controller
         }else{
         	$update = News::where('id',$request->id)->update([
         			'title' 		=> trim($request->title),
-        			'slug'  		=> str_slug(trim($request->slug)),
+        			'slug'  		=> str_slug(trim($request->title)),
         			'intro' 		=> trim($request->intro),
         			'content' 		=> trim($request->content),
         			'category_id' 	=> $request->category_id,

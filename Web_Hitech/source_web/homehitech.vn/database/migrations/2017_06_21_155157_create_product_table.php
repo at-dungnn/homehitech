@@ -20,7 +20,7 @@ class CreateProductTable extends Migration
             $table->string('ma_sanpham');
             $table->string('cong_suat',50)->nullable();
             $table->string('kich_thuoc',50)->nullable();
-            $table->string('khoet_lo',50)->nullable();
+            $table->string('quang_thong',50)->nullable();
             $table->string('gia',20);
             $table->string('giam_gia',20)->nullable();
             $table->string('img_path')->nullable();

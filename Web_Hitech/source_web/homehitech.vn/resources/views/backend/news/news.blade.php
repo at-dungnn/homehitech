@@ -20,7 +20,7 @@
                 <table class="table table-striped m-b-none" data-ride="datatables" id="product">
                     <thead>
                         <tr>
-                            <th width="5%">ID</th>
+                            <th width="10%">ID</th>
                             <th width="25%">Tiêu đề</th>
                             <th width="15%">Danh Mục</th>
                             <th width="15%">Người tạo</th>

@@ -3,10 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
+use App\News;
 class BlogController extends Controller
 {
     public function getIndex(){  
-    	return view('layouts.blog-content');
+    	$news = News::paginate(1);
+    	return view('home.blog-content',compact('news'));
     }
+
+    public function showBlog($slug){
+    	$news = News::where('slug',$slug)->get()->first();
+    	return view('home.blog-detail',compact('news'));
+    }
+
 }

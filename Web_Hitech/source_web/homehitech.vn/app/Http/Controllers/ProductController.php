@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Product;
 use App\Http\Requests\ProductRequest;
-use Session,Auth;
+use Session,Auth,Image;
 class ProductController extends Controller
 {
     public $data;
@@ -26,6 +26,7 @@ class ProductController extends Controller
         if($request->hasFile('img_path')){
             $filename = time()."-".$request->file('img_path')->getClientOriginalName();
             $request->file('img_path')->move('upload/product',$filename);
+            Image::make('upload/product/'.$filename)->resize(255, 185)->save('upload/product/'.$filename);
         }
 
         $product = new Product;
@@ -34,7 +35,7 @@ class ProductController extends Controller
         $product->ma_sanpham  = trim($request->ma_sanpham);
         $product->cong_suat   = trim($request->cong_suat);
         $product->kich_thuoc  = trim($request->kich_thuoc);
-        $product->khoet_lo    = trim($request->khoet_lo);
+        $product->quang_thong = trim($request->quang_thong);
         $product->gia         = trim($request->gia);
         $product->thong_so    = trim($request->thong_so);
         $product->giam_gia    = trim($request->giam_gia);
@@ -61,7 +62,7 @@ class ProductController extends Controller
         return response()->json(array('data'=>$product));
     }
     public function getEdit($id){
-        $product    =   Product::where([['delete','0'],['id',$id]])->select('id','ten_sanpham','ma_sanpham','cong_suat','kich_thuoc','khoet_lo','gia','img_path','category_id','thong_so','giam_gia','so_luong')->get();
+        $product    =   Product::where([['delete','0'],['id',$id]])->select('id','ten_sanpham','ma_sanpham','cong_suat','kich_thuoc','quang_thong','gia','img_path','category_id','thong_so','giam_gia','so_luong')->get();
         $category   =   Category::where('delete','0')->get();
         $category   =   $this->showCategories($category);
         return view('backend.product.product-edit',['isActive'=>'product','data'=>$product,'category'=>$category]);
@@ -93,6 +94,7 @@ class ProductController extends Controller
         if($request->hasFile('img_path')){
             $filename=$request->file('img_path')->getClientOriginalName();
             $request->file('img_path')->move('upload/product',$filename);
+            Image::make('upload/product/'.$filename)->resize(255, 185)->save('upload/product/'.$filename);
         }
         if($filename==''){
             $update = Product::where('id',$request->id)->update([
@@ -101,7 +103,7 @@ class ProductController extends Controller
             'ma_sanpham'   => trim($request->ma_sanpham),
             'cong_suat'    => trim($request->cong_suat),
             'kich_thuoc'   => trim($request->kich_thuoc),
-            'khoet_lo'     => trim($request->khoet_lo),
+            'quang_thong'  => trim($request->quang_thong),
             'gia'          => trim($request->gia),
             'thong_so'     => trim($request->thong_so),
             'giam_gia'     => trim($request->giam_gia),
@@ -115,7 +117,7 @@ class ProductController extends Controller
             'ma_sanpham'   => trim($request->ma_sanpham),
             'cong_suat'    => trim($request->cong_suat),
             'kich_thuoc'   => trim($request->kich_thuoc),
-            'khoet_lo'     => trim($request->khoet_lo),
+            'quang_thong'  => trim($request->quang_thong),
             'gia'          => trim($request->gia),
             'thong_so'     => trim($request->thong_so),
             'giam_gia'     => trim($request->giam_gia),

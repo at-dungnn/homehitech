@@ -76,9 +76,9 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">Khoét lỗ</label>
+                                <label class="col-sm-2 control-label">Quang thông</label>
                                 <div class="col-sm-4">
-                                    <input type="text" name="khoet_lo" class="khoet_lo form-control" value="{!!$data['0']->khoet_lo or ''!!}">
+                                    <input type="text" name="quang_thong" class="quang_thong form-control" value="{!!$data['0']->quang_thong or ''!!}">
                                 </div>
                             </div>
                             <div class="form-group">
