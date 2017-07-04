@@ -61,7 +61,10 @@ function search(id) {
                 // console.log(res.product[0].category_id);
                 $.each(res.product,function(key, value ){
 				     // console.log(value['id']);
-				     
+				     $('#data_product').each(function(){
+				     	// $('#id').attr('src', '/updload/product/'+ value['path']);
+				     	$('product_ma').val(value['ma_sanpham']);
+				     });
 				});
             }
         });
