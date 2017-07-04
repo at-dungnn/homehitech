@@ -49,6 +49,7 @@ $(document).ready(function(){
  */
 function search(id) {
     try {
+    	var html = '';
         //
         $.ajax({
             type        :   'POST',
@@ -58,11 +59,35 @@ function search(id) {
                 id      : id
             },
             success: function(res) {
-                // console.log(res.product[0].category_id);
                 $.each(res.product,function(key, value ){
-				     // console.log(value['id']);
+				     console.log(value['id']);
+				     var giam_gia = value['giam_gia']* value['gia']/100;
+				     giam_gia = value['gia'] - value['giam_gia'];
+				     html = html.concat('<div class="col-sm-4 data_product">'
+							+'<div class="product-image-wrapper">'
+								+'<div class="single-products">'
+										+'<div class="productinfo text-center">'
+											+'<img src="upload/product/'+value['img_path']+'" alt="" />'
+											+'<h2>Mã : '+value['ma_sanpham']+'</h2>'
+											+'<p>Công suất : '+value['cong_suat']+'</p>'
+											+'<p>Kích thước : '+value['kich_thuoc']+'</p>'
+											+'<p>Quang thông : '+value['quang_thong']+'</p>'
+											+'<p>Giá '+value['gia']+'đ</p>'
+											+'<p>Giảm giá : '+giam_gia+'đ</p>'
+											+'<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>'
+										+'</div>'
+								+'</div>'
+								+'<div class="choose">'
+									+'<ul class="nav nav-pills nav-justified">'
+										+'<li><a href="#"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>'
+									+'</ul>'
+								+'</div>'
+							+'</div>'
+						+'</div>');
 				     
 				});
+				$("#list_product").html("");
+				$("#list_product").html(html);
             }
         });
         

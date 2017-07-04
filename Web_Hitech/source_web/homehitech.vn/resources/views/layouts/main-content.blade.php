@@ -81,7 +81,7 @@
 											<ul>
 												@foreach($category as $category_value)
 													@if ($menu_value['id'] == $category_value['parent_id'])
-														<li class="data_product" data-id ="{{$category_value['id']}}" ><a href="#">{{$category_value['name']}}</a></li>
+														<li class="data_product" data-id ="{{$category_value['id']}}" style="cursor: pointer">{{$category_value['name']}}</li>
 													@endif
 												@endforeach
 											</ul>
@@ -111,134 +111,33 @@
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Danh sách sản phẩm</h2>
-						<div class="col-sm-4 data_product">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-										<div class="productinfo text-center">
-											<img src="images/home/dentrangtri_1_resize.jpg" alt="" />
-											<h2>Mã : KSTH-COB-5</h2>
-											<p>Công suất : 20w</p>
-											<p>Kích thước : 85x85</p>
-											<p>Khoét lỗ : 80</p>
-											<p>Giá 170,000đ</p>
-											<p>Giảm giá : 147,000đ</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-										</div>
+						<div id="list_product">
+							@foreach($product as $key=>$val)
+								<?php $gia = $val->giam_gia*$val->gia/100;?>
+								<div class="col-sm-4 data_product">
+								   <div class="product-image-wrapper">
+								      <div class="single-products">
+								         <div class="productinfo text-center">
+								            <img src="upload/product/1499159440-1.jpg" alt="">
+								            <h2>Mã : {{$val->ma_sanpham}}</h2>
+								            <p>Công suất : {{$val->cong_suat}}</p>
+								            <p>Kích thước : {{$val->kich_thuoc}}</p>
+								            <p>Quang thông : {{$val->quang_thong}}</p>
+								            <p>Giá {{$val->gia}}</p>
+								            <p>Giảm giá : {{$val->gia-$gia}}</p>
+								            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+								         </div>
+								      </div>
+								      <div class="choose">
+								         <ul class="nav nav-pills nav-justified">
+								            <li><a href="#"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
+								         </ul>
+								      </div>
+								   </div>
 								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
-									</ul>
-								</div>
-							</div>
+							@endforeach
 						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/dentrangtri_2_resize.jpg" alt="" />
-										<h2>Mã : KSTH-COB-5</h2>
-											<p>Công suất : 20w</p>
-											<p>Kích thước : 85x85</p>
-											<p>Khoét lỗ : 80</p>
-											<p>Giá 170,000đ</p>
-											<p>Giảm giá : 147,000đ</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/dentrangtri_3_resize.jpg" alt="" />
-										<h2>Mã : KSTH-COB-5</h2>
-											<p>Công suất : 20w</p>
-											<p>Kích thước : 85x85</p>
-											<p>Khoét lỗ : 80</p>
-											<p>Giá 170,000đ</p>
-											<p>Giảm giá : 147,000đ</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/dentrangtri_4_resize.jpg" alt="" />
-										<h2>Mã : KSTH-COB-5</h2>
-											<p>Công suất : 20w</p>
-											<p>Kích thước : 85x85</p>
-											<p>Khoét lỗ : 80</p>
-											<p>Giá 170,000đ</p>
-											<p>Giảm giá : 147,000đ</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-									</div>
-									<img src="images/home/new.png" class="new" alt="" />
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/dentrangtri_5_resize.jpg" alt="" />
-										<h2>Mã : KSTH-COB-5</h2>
-											<p>Công suất : 20w</p>
-											<p>Kích thước : 85x85</p>
-											<p>Khoét lỗ : 80</p>
-											<p>Giá 170,000đ</p>
-											<p>Giảm giá : 147,000đ</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-									</div>
-									<img src="images/home/sale.png" class="new" alt="" />
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/dentrangtri_6_resize.jpg" alt="" />
-										<h2>Mã : KSTH-COB-5</h2>
-											<p>Công suất : 20w</p>
-											<p>Kích thước : 85x85</p>
-											<p>Khoét lỗ : 80</p>
-											<p>Giá 170,000đ</p>
-											<p>Giảm giá : 147,000đ</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
+						
 						
 					</div><!--features_items-->
 				
