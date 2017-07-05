@@ -64,7 +64,7 @@
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="left-sidebar">
-						<h2>Danh má»¥c</h2>
+						<h2>Danh mục</h2>
 						<div class="panel-group category-products" id="accordian">
 							@foreach($menu as $menu_value)
 								<div class="panel panel-default">
@@ -110,7 +110,7 @@
 				
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Danh sách sản phẩm/h2>
+						<h2 class="title text-center">Danh sách sản phẩm</h2>
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
@@ -121,7 +121,7 @@
 											<p class="product_size">Kích thước : 85x85</p>
 											<p class="product_khoetlo">Khoét lỗ: 80</p>
 											<p class="product_gia">Giá 170,000</p>
-											<p class="product_sale">Giảm giá: 147,000Ä‘</p>
+											<p class="product_sale">Giảm giá: 147,000</p>
 											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
 										</div>
 								</div>
@@ -205,7 +205,7 @@
 											<p class="product_size">Kích thước : 85x85</p>
 											<p class="product_khoetlo">Khoét lỗ: 80</p>
 											<p class="product_gia">Giá 170,000</p>
-											<p class="product_sale">Giảm giá: 147,000Ä‘</p>
+											<p class="product_sale">Giảm giá: 147,000</p>
 											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
 										</div>
 								</div>
