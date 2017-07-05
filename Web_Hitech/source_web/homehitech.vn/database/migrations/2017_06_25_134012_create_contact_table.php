@@ -1,9 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
 class CreateContactTable extends Migration
 {
     /**
@@ -23,7 +21,6 @@ class CreateContactTable extends Migration
             $table->string('facebook');
         });
     }
-
     /**
      * Reverse the migrations.
      *

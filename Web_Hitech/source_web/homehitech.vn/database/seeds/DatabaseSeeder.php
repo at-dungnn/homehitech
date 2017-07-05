@@ -11,12 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'administrator',
-            'email' => 'admin@homehitech.vn',
-            'password' => bcrypt('123456'),
-            // 'created_at' => date('d-m-Y H:i:s')
-        ]);
+        // DB::table('users')->insert([
+        //     'name' => 'administrator',
+        //     'email' => 'admin@homehitech.vn',
+        //     'password' => bcrypt('123456'),
+        //     // 'created_at' => date('d-m-Y H:i:s')
+        // ]);
         DB::table('contact')->insert([
             'address' => '83 ĐIỆN BIÊN PHỦ, ĐÀ NẴNG',
             'email' => 'admin@homehitech.vn',
